@@ -1,0 +1,5 @@
+# profile	section_file	section_size	section_sha256	section_va	new_entry	expected_entry	placement	mex_cave_zero	static_top
+# One row per AI-only injection profile. Values are hex (0x...) or decimal; see knowledge/reference/REF_MINIMAL_BUILD.md section 4.
+vanilla	sections/vanilla.aionly.bin	31284	744445c10bf14fe06658853af08e7d8abe39076f16e64166dc3232e9027a57d6	0x80484800	0x80484800	0x8000522C	static	0	0x817F60A4
+hybrid64	sections/hybrid64.aionly.bin	31284	47ef73c028449bcb426ee754a3ea23229e72d6e818d3a8778838b02fb83feb7d	0x80486600	0x80486600	0x80484800	static	0	0x817F60A4
+mex	sections/mex.aionly.bin	31252	9b6d362feafe13455ef12acb1c0a74ddf74c4468a58c7bcd40624d4d2d270732	0x80484800	0x80484800	0x8000522C	dynamic	1	-

@@ -1,0 +1,11 @@
+# va	stock_word	name   (every profile: the word the boot DOL must hold at each hook site the stub takes in RAM)
+0x8006B008	0x907F065C	engine
+0x8006D1EC	0x7C0802A6	selector
+0x8016BC74	0x7C0802A6	menu
+0x8008E5CC	0xC0630620	di
+0x8008E510	0xC0430624	sdi
+0x800DD368	0x389E0000	nana
+0x80098754	0x887F0680	tech_neutral
+0x80098948	0x2C030000	tech_roll
+0x80097DE0	0x7FE3FB78	tech_getup_a
+0x8009803C	0x7C7F1B78	tech_getup_b
