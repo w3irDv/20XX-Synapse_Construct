@@ -10,9 +10,10 @@
 Synapse brings the **20XX CPU AI** to Super Smash Bros. Melee (NTSC 1.02), on vanilla Melee and on mods built on it. The 20XX AI is the "advanced" CPU from the 20XX Training Hack Pack: it wavedashes, dash-dances, shields and answers out of shield, techs and DIs, recovers and edgeguards. Synapse adds it to your Melee Mod together with:
 
 - a **CPU selector** on the D-pad and a **CPU config menu** (see [In a match](#in-a-match) below);
-- the 20XX **DI, smash DI, tech and Nana-throw** reactions.
+- the 20XX **DI, smash DI, tech and Nana-throw** reactions;
+- the 20XX **CPU rules**: CPUs L-cancel, never taunt, Captain Falcon never rapid-jabs, Sheik/Zelda never transform, each switchable in the menu.
 
-It also drives characters added by Akaneia or SSBM ACE (they use Mario's character-specific choices). Your original ISO is never modified: the builder writes a new one.
+It also drives characters added by Akaneia or SSBM ACE: by default they play the 20XX AI as Donkey Kong (with their own moves); the menu's **ADDED FIGHTERS PLAY AS** line picks another character, or OFF for Melee's own CPU. Your original ISO is never modified: the builder writes a new one.
 
 ## Why Synapse?
 
@@ -24,7 +25,9 @@ It also drives characters added by Akaneia or SSBM ACE (they use Mario's charact
 - **A Melee NTSC 1.02 ISO** you own, uncompressed (`.iso` / `.gcm`), **without** Synapse already in it:
   
   - vanilla Melee NTSC 1.02 (Tournament Mode keeps working);
-  - hybrid.64, Akaneia or SSBM ACE v2.0.0;
+  - hybrid.64 v3.2 (Slippi or vanilla build), Akaneia or SSBM ACE v2.0.0;
+  - Silly Melee v1.01;
+  - also tested: SSBM Custom Stages Expansion 0.91, SSBM ULTRA v2.4 CSE 0.91, Arcade Melee Demo 2.0;
   - another mod built on NTSC 1.02, if it passes the builder's checks.
   
   20XX itself is not supported. Compressed images (`.nkit.iso`, `.rvz`, `.ciso`, `.wbfs`) must first be converted to a plain ISO with Dolphin (right-click the game → Convert File… → ISO).
@@ -100,7 +103,7 @@ Stay · Unused · Escape · Jump · **20XX** · Inert · Nana · Defensive · St
 
 **20XX** is the 20XX Hack Pack AI; the others are Melee's own built-in CPU behaviours. Some are passive or only meaningful in their original single-player context: for training, use **20XX**, and **Stay** as a pause.
 
-**CPU config menu:** **Z + D-Up** opens it (**B** goes back and closes it; **D-pad** moves and changes values). Place the CPU in the "Stay" state using **D-Up** before entering, and return it to **20XX** using **D-Down** after exiting. The menu tunes how the 20XX Hack Pack AI plays: aggression in neutral, shield and out-of-shield habits, SHFFL aerials, DI and smash DI, tech and getup choices, and techchase escapes. Changes apply at once and last until you turn the game off.
+**CPU config menu:** **Z + D-Up** opens it (**B** goes back and closes it; **D-pad** moves and changes values). Place the CPU in the "Stay" state using **D-Up** before entering, and return it to **20XX** using **D-Down** after exiting. The menu tunes how the 20XX Hack Pack AI plays: aggression in neutral, shield and out-of-shield habits, SHFFL aerials, DI and smash DI, tech and getup choices, and techchase escapes, plus the 20XX CPU rules page (and, on m-ex mods such as Akaneia and SSBM ACE, which character added fighters play as). Changes apply at once and last until you turn the game off.
 
 You can easily change between 20XX and vanilla AIs just with one  **Z + D-Left**  and one **Z+D-Right**.
 

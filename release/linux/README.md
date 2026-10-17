@@ -3,7 +3,9 @@
 `build-synapse-iso.sh` takes a Super Smash Bros. Melee **NTSC 1.02** ISO, either vanilla or a mod built on
 it (hybrid.64, Akaneia, SSBM ACE, or another GALE01 mod that passes the eligibility checks), and writes a
 new ISO that runs the Synapse CPU AI: the AI engine, the CPU config menu (Z + D-Up), the CPU-type selector
-(D-pad), and the DI / SDI / tech / Nana reactions. Your original ISO is never modified.
+(D-pad), the DI / SDI / tech / Nana reactions, and the 20XX CPU rules (CPUs L-cancel, never taunt, Captain
+Falcon never rapid-jabs, Sheik/Zelda never transform; each one switchable on the config menu's `<20XX CPU RULES>`
+page). Your original ISO is never modified.
 
 ## Requirements
 
@@ -17,7 +19,7 @@ new ISO that runs the Synapse CPU AI: the AI engine, the CPU config menu (Z + D-
   | Base | Notes |
   |---|---|
   | vanilla Melee NTSC 1.02 | Tournament Mode keeps working |
-  | hybrid.64 | the output is ~4.5 MB larger than the source |
+  | hybrid.64, either v3.2 build (Slippi, or the vanilla build whose game ID is `GHME01`) | the output is ~4.5 MB larger than the source |
   | Akaneia, SSBM ACE v2.0.0, and the m-ex mods SSBM Custom Stages Expansion 0.91, SSBM ULTRA v2.4 CSE 0.91 and Arcade Melee Demo 2.0 | |
   | another GALE01 1.02 ISO | built only if it passes every compatibility check, after the script asks you (see below) |
 
@@ -133,7 +135,7 @@ An ISO that was already injected can't be injected again (check B1); always star
 ## ISOs this release hasn't been tested with
 
 Many Melee mods change the game's own code (the part the script calls the "DOL"). This release was tested
-on vanilla, hybrid.64, Akaneia, SSBM ACE v2.0.0 and the m-ex mods SSBM Custom Stages Expansion 0.91, SSBM ULTRA v2.4 CSE 0.91 and Arcade Melee Demo 2.0. For any other mod, the script runs every compatibility
+on vanilla, hybrid.64 (both v3.2 builds: Slippi, and the vanilla build `GHME01`), Akaneia, SSBM ACE v2.0.0 and the m-ex mods SSBM Custom Stages Expansion 0.91, SSBM ULTRA v2.4 CSE 0.91 and Arcade Melee Demo 2.0. For any other mod, the script runs every compatibility
 check, prints a `== REPORT` block (see below), and then:
 
 - if the ISO **isn't** compatible: says why and stops (exit code 4). Nothing is built, and there is no
@@ -169,7 +171,7 @@ When you build an untested ISO, the script prints a block like this:
 
 ```text
 == REPORT (untested ISO: copy this block when you report how it went)
-  release data : 119e9a4b3dce
+  release data : fb50a7ad1cf5
   iso          : SSBM 0.91 ULTRA v2.4.iso (1438710620 B)
   game code    : SHA-256 540d05520d716a4570ae9aad78616f65d441a3978dd607f5c3104dfb449b7b4a (not in known_dols.tsv)
   profile      : mex

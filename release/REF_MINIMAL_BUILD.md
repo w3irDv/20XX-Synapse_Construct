@@ -56,8 +56,10 @@ the whitespace and match the whole NUL-delimited bytes, so GNU, BSD and busybox 
 | `hybrid.64.iso` | ✅ hybrid64 | `hybrid64` | — | eligible (tested) |
 | `SSBM Custom Stages Expansion 0.91.iso` | ✅ m-ex (same DOL as Akaneia / ACE) | `mex` | — | eligible (tested) |
 | `ARCADE_MELEE-DEMO_2.0.iso`, `SSBM ULTRA v2.4 CSE 0.91.iso` | ✅ m-ex (own DOLs, tested mods) | `mex` (m-ex cave zero, `MxDt.dat`) | — | eligible (tested) |
-| `Silly Melee.iso` | ❌ | `vanilla` (cave holds code, no disc marks) | none | eligible, unproven: boot-test |
-| `SSBM, 20XXHP 5.0.2.iso` | ❌ | none (`AI_Engine.bin`: 20XX) | S2 (`S2-20XX`). Classified `vanilla` it would also fail B6 and B10 (all 7 reaction hooks taken by 20XX's own caves) and B9 (ceiling `0x817F4440`) | ineligible: use the Swap (I7) |
+| `Silly Melee.iso` (v1.01) | ✅ vanilla (own DOL, tested mod) | `vanilla` (cave holds code, no disc marks) | — | eligible (tested: Phase 1 T0–T6) |
+| `hybrid.64.vanilla.iso` (v3.2 vanilla build, `GHME01`; 2026-10-15) | ✅ vanilla (own DOL, tested mod, `game_id` `GHME01`) | — (G3 accepts it only as the listed DOL) | — | eligible (tested: release scripts reproduce its golden ISO, `e30c761d…` on release data `fb50a7ad1cf5`; Dolphin `-AllFeatures` boot test) |
+| a `GHME01` ISO that isn't the listed DOL (e.g. an injected copy) | ❌ | — | G3 (`G3id`) | refused |
+| `SSBM, 20XXHP 5.0.2.iso` | ❌ | none (`AI_Engine.bin`: 20XX) | S2 (`S2-20XX`). Classified `vanilla` it would also fail B6 and B10 (7 of the 8 reaction-cave hooks taken by 20XX's own caves) and B9 (ceiling `0x817F4440`) | ineligible: use the Swap (I7) |
 | any `.aionly.iso` / `.fullpackage.iso` | ❌ | — | B1 (entry already `0x80484800`/`0x80486600`) | ineligible: already injected |
 
 ### 8.4 What eligibility does not prove
@@ -108,4 +110,5 @@ procedure on it → after any later change, run `--check-built` on the result, a
 from the kept copy (an injected ISO is refused as a source, B1). The build report (S9) prints the
 remaining FST headroom so the user knows the budget before adding more.
 
-Added characters on m-ex run the 20XX brain as Mario (the engine's `nvchars` clamp): a behaviour property of the engine, not of this procedure.
+Added characters on m-ex run the 20XX brain as a vanilla character: DK by default, or the pick of the config menu's
+`ADDED FIGHTERS PLAY AS` row (the engine's `nvchars` clamp): a behaviour property of the engine, not of this procedure.

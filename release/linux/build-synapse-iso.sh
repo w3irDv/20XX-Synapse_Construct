@@ -40,6 +40,7 @@ BYTES_PER_FILE=24                   # average FST cost of one added file (REF_MI
 VANILLA_ENTRY=$((0x8000522C))
 HYBRID_ENTRY=$((0x80484800))
 HYBRID_TEXT_END=$((0x80486600))
+ALT_GAME_IDS=' GHME01 '            # besides GALE01: accepted only for a known_dols.tsv row with that game_id (hybrid.64 v3.2 vanilla build)
 MIB=$((1024 * 1024))
 CLASS='' CLASS_KEY=S2 CLASS_LOW=0 HAS_MXDT=0 HAS_AIENG=0   # set by classify / disc_marks
 LOCAL_KNOWN=known_dols.local.tsv    # bases added with --add-known-base (in --common, outside SHA256SUMS)
@@ -62,6 +63,7 @@ declare -A PLAYER=(
     ['G1']="The file can't be read, or it is too small to be a Melee disc image."
     ['G2']="This isn't a plain GameCube disc image (it may be compressed: .nkit, .rvz, .ciso, .wbfs). In Dolphin, right-click the game > Convert File... > ISO, then try again."
     ['G3']="This isn't Melee NTSC 1.02 (the US/Japanese version 1.02). PAL and versions 1.00/1.01 aren't supported."
+    ['G3id']="This disc's game ID is accepted only for the exact ISOs this release lists (hybrid.64's vanilla build is one). This copy isn't one of them: start from the original, unmodified ISO."
     ['G4']="The disc image looks truncated or damaged. Dump or download it again."
     ['G5']="The disc image looks truncated or damaged. Dump or download it again."
     ['B1']="Another mod already changes how this game starts up, so Synapse can't be added on top of it."
@@ -285,9 +287,12 @@ open_iso() {  # G1-G5 + DOL + FST
     check G2 $(( U32 == MAGIC_GC )) "GameCube magic at 0x01C = $(hx "$U32")"
     if [ "$OK" = 0 ]; then die 3 'not a plain GameCube image (NKit/RVZ/WBFS/CISO?): convert it to .iso with Dolphin first'; fi
     local g3=0
-    if [ "$gid" = GALE01 ] && [ "${hb[7]}" -eq 2 ]; then g3=1; fi
-    check G3 $g3 "game ID $gid, revision ${hb[7]} (need GALE01 rev 2)"
+    local g3note=''
+    if [ "$gid" != GALE01 ]; then g3note="; $gid only for a listed ISO"; fi
+    if { [ "$gid" = GALE01 ] || [[ "$ALT_GAME_IDS" == *" $gid "* ]]; } && [ "${hb[7]}" -eq 2 ]; then g3=1; fi
+    check G3 $g3 "game ID $gid, revision ${hb[7]} (need GALE01 rev 2$g3note)"
     if [ "$OK" = 0 ]; then die 3 'not Melee NTSC 1.02'; fi
+    GAME_ID=$gid
     HEAD_HEX=$(od -An -v -tx1 -N 8 -- "$path" | tr -d ' \n')
     u32_list "$path" $((0x420)) 4
     DOL_OFF=${U32S[0]} FST_OFF=${U32S[1]} FST_SIZE=${U32S[2]} FST_MAX=${U32S[3]}
@@ -376,7 +381,7 @@ load_common() {
         if [ "${f[9]}" = '-' ]; then P_TOP[${f[0]}]=''; else P_TOP[${f[0]}]=$((f[9])); fi
     done
     # known DOLs
-    declare -gA K_PROFILE=() K_NAME=() K_OUTSIZE=() K_OUTSHA=() K_LOCAL=()
+    declare -gA K_PROFILE=() K_NAME=() K_OUTSIZE=() K_OUTSHA=() K_LOCAL=() K_GAMEID=()
     local k
     read_table "$dir/known_dols.tsv"
     for r in "${ROWS[@]}"; do
@@ -384,6 +389,7 @@ load_common() {
         k=$(printf '%s' "${f[0]}" | tr 'A-F' 'a-f')
         K_PROFILE[$k]=${f[1]}; K_NAME[$k]=${f[2]}; K_OUTSIZE[$k]=$((f[3]))
         K_OUTSHA[$k]=$(printf '%s' "${f[4]}" | tr 'A-F' 'a-f'); K_LOCAL[$k]=0
+        K_GAMEID[$k]=${f[5]:-GALE01}   # optional 6th column: a non-GALE01 disc
     done
     if [ -f "$dir/$LOCAL_KNOWN" ]; then   # optional, added with --add-known-base; a release row wins over a local one
         n=0
@@ -394,7 +400,7 @@ load_common() {
             k=$(printf '%s' "${f[0]}" | tr 'A-F' 'a-f')
             if [ -n "${K_PROFILE[$k]+x}" ]; then continue; fi
             K_PROFILE[$k]=${f[1]}; K_NAME[$k]=${f[2]}; K_OUTSIZE[$k]=$((f[3]))
-            K_OUTSHA[$k]=$(printf '%s' "${f[4]}" | tr 'A-F' 'a-f'); K_LOCAL[$k]=1
+            K_OUTSHA[$k]=$(printf '%s' "${f[4]}" | tr 'A-F' 'a-f'); K_LOCAL[$k]=1; K_GAMEID[$k]=GALE01
             n=$((n + 1))
         done
         info "$LOCAL_KNOWN: $n locally added base(s)"
@@ -652,21 +658,41 @@ show_report() {    # a block the user can copy when reporting an untested ISO
 }
 
 # ================================================================================================= modes
+test_game_id() {   # test_game_id <source|built>: G3, second half (SPEC_HYBRID64_BOTH_BUILDS.md)
+    # A disc whose game ID isn't GALE01 is accepted only for a known_dols.tsv row with that game_id: a source must BE
+    # that row's boot DOL; a built ISO needs the release to list the id.
+    local k ok=0 msg
+    if [ "$GAME_ID" = GALE01 ]; then return 0; fi
+    if [ "$1" = built ]; then
+        for k in "${!K_GAMEID[@]}"; do if [ "${K_GAMEID[$k]}" = "$GAME_ID" ]; then ok=1; fi; done
+        msg="game ID $GAME_ID: this release lists a base with that game ID"
+    else
+        if [ -n "${K_PROFILE[$DOL_SHA]+x}" ] && [ "${K_GAMEID[$DOL_SHA]}" = "$GAME_ID" ]; then ok=1; fi
+        if [ "$ok" = 1 ]; then msg="game ID $GAME_ID: boot DOL is the listed '${K_NAME[$DOL_SHA]}'"
+        else msg="game ID $GAME_ID: boot DOL is not a listed ISO"; fi
+    fi
+    if [ "$ok" = 1 ]; then pass G3 "$msg"; else bad G3 "$msg" G3id; die 3 "game ID $GAME_ID is accepted only for a listed ISO"; fi
+}
 check_built() {    # REF_MINIMAL_BUILD 9.4: K1-K8, read-only -> CB_FOUND (profile, '' if none), CB_SHA / CB_SIZE (padded DOL)
-    local path=$1 i p found='' fslot=-1 padded sha asbuilt=0 k
+    local path=$1 i p found='' fslot=-1 padded sha asbuilt=0 k cand hit
     CB_FOUND='' CB_SHA='' CB_SIZE=0
     echo "== --check-built $path"
     open_iso "$path" ISO
+    test_game_id built
     pass K1 'G1-G5 passed'
     for i in "${D_SLOTS[@]}"; do
         if [ "$i" -gt 6 ]; then continue; fi
+        # Profiles can share address and size (vanilla and mex: 0x80484800, same length), so the slot is
+        # damaged only when it matches a candidate's address and size but none of their SHA-256s.
+        cand='' hit=''
         for p in "${P_NAMES[@]}"; do
             if [ "${D_VA[i]}" -eq "${P_VA[$p]}" ] && [ "${D_SZ[i]}" -eq "${P_SIZE[$p]}" ]; then
-                sha256_range "$TMP/dol.bin" "${D_OFF[i]}" "${D_SZ[i]}"
-                if [ "$SHA" = "${P_SHA[$p]}" ]; then found=$p; fslot=$i
-                else bad K2 "slot $i at $(hx "${D_VA[i]}") has the size of the $p section but its SHA-256 differs: the section is damaged" K2bad; fi
+                if [ -z "$cand" ]; then sha256_range "$TMP/dol.bin" "${D_OFF[i]}" "${D_SZ[i]}"; cand=$p; else cand="$cand / $p"; fi
+                if [ -z "$hit" ] && [ "$SHA" = "${P_SHA[$p]}" ]; then hit=$p; fi
             fi
         done
+        if [ -n "$hit" ]; then found=$hit; fslot=$i
+        elif [ -n "$cand" ]; then bad K2 "slot $i at $(hx "${D_VA[i]}") has the size of the $cand section but its SHA-256 differs: the section is damaged" K2bad; fi
     done
     padded=$(align "$DOL_SIZE" 32)
     if [ $((DOL_OFF + padded)) -le "$ISO_SIZE" ]; then sha256_range "$ISO" "$DOL_OFF" "$padded"; sha=$SHA
@@ -716,6 +742,7 @@ add_known_base() {   # --add-known-base: an UNKNOWN but eligible source DOL -> $
     local src=$1 built=$2 pname in_sha newsha newsize same=0 bname kd
     echo "== --add-known-base $src"
     open_iso "$src" 'source ISO'
+    test_game_id source
     if [ -n "${K_PROFILE[$DOL_SHA]+x}" ]; then
         local where=''
         if [ "${K_LOCAL[$DOL_SHA]}" = 1 ]; then where=", $LOCAL_KNOWN"; fi
@@ -771,6 +798,7 @@ build() {
     abspath "$SOURCE"; src=$ABS
     echo "== source $src"
     open_iso "$src" 'source ISO'
+    test_game_id source
     # ---- S2: profile
     if [ -n "${K_PROFILE[$DOL_SHA]+x}" ]; then unknown=0; known_p=${K_PROFILE[$DOL_SHA]}; fi
     if [ "$unknown" = 0 ]; then

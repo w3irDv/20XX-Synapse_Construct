@@ -56,6 +56,7 @@ $LOCAL_KNOWN   = 'known_dols.local.tsv'      # bases added with -AddKnownBase (i
 $VANILLA_ENTRY = 0x8000522CL
 $HYBRID_ENTRY  = 0x80484800L
 $HYBRID_TEXT_END = 0x80486600L
+$ALT_GAME_IDS  = @('GHME01')                 # besides GALE01: accepted only for a known_dols.tsv row with that game_id (hybrid.64 v3.2 vanilla build)
 
 $script:Failed = 0
 $script:PartFile = $null
@@ -68,6 +69,7 @@ $PLAYER = @{
     'G1'      = "The file can't be read, or it is too small to be a Melee disc image."
     'G2'      = "This isn't a plain GameCube disc image (it may be compressed: .nkit, .rvz, .ciso, .wbfs). In Dolphin, right-click the game > Convert File... > ISO, then try again."
     'G3'      = "This isn't Melee NTSC 1.02 (the US/Japanese version 1.02). PAL and versions 1.00/1.01 aren't supported."
+    'G3id'    = "This disc's game ID is accepted only for the exact ISOs this release lists (hybrid.64's vanilla build is one). This copy isn't one of them: start from the original, unmodified ISO."
     'G4'      = "The disc image looks truncated or damaged. Dump or download it again."
     'G5'      = "The disc image looks truncated or damaged. Dump or download it again."
     'B1'      = "Another mod already changes how this game starts up, so Synapse can't be added on top of it."
@@ -212,8 +214,9 @@ function Open-Iso([string]$path, [string]$who) {
     if (-not (Check 'G2' ((BE32 $h 0x1C) -eq $MAGIC_GC) ("GameCube magic at 0x01C = {0}" -f (Hex (BE32 $h 0x1C))))) {
         Fail 3 'not a plain GameCube image (NKit/RVZ/WBFS/CISO?): convert it to .iso with Dolphin first' }
     $gid = [Text.Encoding]::ASCII.GetString($h, 0, 6)
-    if (-not (Check 'G3' ($gid -eq 'GALE01' -and $h[7] -eq 2) ("game ID {0}, revision {1} (need GALE01 rev 2)" -f $gid, $h[7]))) {
+    if (-not (Check 'G3' (($gid -eq 'GALE01' -or $ALT_GAME_IDS -contains $gid) -and $h[7] -eq 2) ("game ID {0}, revision {1} (need GALE01 rev 2{2})" -f $gid, $h[7], $(if ($gid -eq 'GALE01') { '' } else { '; ' + $gid + ' only for a listed ISO' })))) {
         Fail 3 'not Melee NTSC 1.02' }
+    $iso.GameId = $gid
     $iso.DolOff = BE32 $h 0x420; $iso.FstOff = BE32 $h 0x424; $iso.FstSize = BE32 $h 0x428; $iso.FstMax = BE32 $h 0x42C
     $iso.AppEnd = [int64]0x2460 + (BE32 $h 0x2454) + (BE32 $h 0x2458)
     $g4 = ($iso.DolOff + 0x100 -le $iso.Size) -and ($iso.FstOff + $iso.FstSize -le $iso.Size) -and `
@@ -272,14 +275,15 @@ function Load-Common([string]$dir) {
             Placement = $r[7]; MexCave = ($r[8] -eq '1'); StaticTop = $top }
     }
     foreach ($r in (Read-Table (Join-Path $dir 'known_dols.tsv'))) {
-        $c.Known[$r[0].ToLower()] = [pscustomobject]@{ Profile = $r[1]; Name = $r[2]; OutSize = [int64]$r[3]; OutSha = $r[4].ToLower(); Local = $false }
+        $gid = 'GALE01'; if ($r.Count -ge 6 -and $r[5]) { $gid = $r[5] }      # optional 6th column: a non-GALE01 disc
+        $c.Known[$r[0].ToLower()] = [pscustomobject]@{ Profile = $r[1]; Name = $r[2]; OutSize = [int64]$r[3]; OutSha = $r[4].ToLower(); Local = $false; GameId = $gid }
     }
     $local = Join-Path $dir $LOCAL_KNOWN      # optional, added with -AddKnownBase; a release row wins over a local one
     if (Test-Path -LiteralPath $local) {
         $n = 0
         foreach ($r in (Read-Table $local)) {
             if ($r.Count -lt 5 -or $c.Known.ContainsKey($r[0].ToLower()) -or -not $c.Profiles.ContainsKey($r[1])) { continue }
-            $c.Known[$r[0].ToLower()] = [pscustomobject]@{ Profile = $r[1]; Name = $r[2]; OutSize = [int64]$r[3]; OutSha = $r[4].ToLower(); Local = $true }
+            $c.Known[$r[0].ToLower()] = [pscustomobject]@{ Profile = $r[1]; Name = $r[2]; OutSize = [int64]$r[3]; OutSha = $r[4].ToLower(); Local = $true; GameId = 'GALE01' }
             $n++
         }
         Info ("{0}: {1} locally added base(s)" -f $LOCAL_KNOWN, $n)
@@ -507,21 +511,39 @@ function Show-Report([int]$code) {   # a block the user can copy when reporting 
 }
 
 # ================================================================================================= modes
+function Test-GameId($iso, $c, [bool]$built) {
+    # G3, second half: a disc whose game ID isn't GALE01 is accepted only for a known_dols.tsv row with that game_id
+    # (SPEC_HYBRID64_BOTH_BUILDS.md). A source must BE that row's boot DOL; a built ISO needs the release to list the id.
+    if ($iso.GameId -eq 'GALE01') { return }
+    if ($built) {
+        $ok = @($c.Known.Values | Where-Object { $_.GameId -eq $iso.GameId }).Count -gt 0
+        $msg = "game ID {0}: this release lists a base with that game ID" -f $iso.GameId
+    } else {
+        $k = $null; if ($c.Known.ContainsKey($iso.DolSha)) { $k = $c.Known[$iso.DolSha] }
+        $ok = ($null -ne $k -and $k.GameId -eq $iso.GameId)
+        if ($ok) { $msg = "game ID {0}: boot DOL is the listed '{1}'" -f $iso.GameId, $k.Name }
+        else { $msg = "game ID {0}: boot DOL is not a listed ISO" -f $iso.GameId }
+    }
+    if ($ok) { Pass 'G3' $msg } else { Bad 'G3' $msg 'G3id'; Fail 3 ("game ID {0} is accepted only for a listed ISO" -f $iso.GameId) }
+}
+
 function Invoke-CheckBuilt([string]$path, $c) {   # REF_MINIMAL_BUILD 9.4: K1-K8, read-only
     Write-Host ("== -CheckBuilt {0}" -f $path)
     $iso = Open-Iso $path 'ISO'
     try {
+        Test-GameId $iso $c $true
         Pass 'K1' 'G1-G5 passed'
         $found = $null; $foundSlot = $null
         foreach ($s in $iso.Slots) {
             if ($s.Slot -gt 6) { continue }
-            foreach ($p in $c.Profiles.Values) {
-                if ($s.Va -eq $p.Va -and $s.Size -eq $p.Size) {
-                    $sha = Sha256-Bytes $iso.Dol ([int]$s.Off) ([int]$s.Size)
-                    if ($sha -eq $p.Sha) { $found = $p; $foundSlot = $s }
-                    else { Bad 'K2' -key 'K2bad' -msg ("slot {0} at {1} has the size of the {2} section but its SHA-256 differs: the section is damaged" -f $s.Slot, (Hex $s.Va), $p.Name) }
-                }
-            }
+            # Profiles can share address and size (vanilla and mex: 0x80484800, same length), so the slot is
+            # damaged only when it matches a candidate's address and size but none of their SHA-256s.
+            $cand = @($c.Profiles.Values | Where-Object { $s.Va -eq $_.Va -and $s.Size -eq $_.Size })
+            if ($cand.Count -eq 0) { continue }
+            $sha = Sha256-Bytes $iso.Dol ([int]$s.Off) ([int]$s.Size)
+            $hit = @($cand | Where-Object { $sha -eq $_.Sha })
+            if ($hit.Count) { $found = $hit[0]; $foundSlot = $s }
+            else { Bad 'K2' -key 'K2bad' -msg ("slot {0} at {1} has the size of the {2} section but its SHA-256 differs: the section is damaged" -f $s.Slot, (Hex $s.Va), (($cand | ForEach-Object { $_.Name }) -join ' / ')) }
         }
         $padded = Align $iso.DolSize 32
         $full = $iso.Dol
@@ -564,6 +586,7 @@ function Invoke-AddKnownBase([string]$srcPath, [string]$builtPath, $c) {
     Write-Host ("== -AddKnownBase {0}" -f $srcPath)
     $iso = Open-Iso $srcPath 'source ISO'
     try {
+        Test-GameId $iso $c $false
         if ($c.Known.ContainsKey($iso.DolSha)) {
             $k = $c.Known[$iso.DolSha]
             Pass 'S2' ("boot DOL SHA-256 {0} is already known: '{1}' (profile {2}{3}); nothing to add" -f $iso.DolSha, $k.Name, $k.Profile, $(if ($k.Local) { ", $LOCAL_KNOWN" } else { '' }))
@@ -613,6 +636,7 @@ function Invoke-Build($c) {
     Write-Host ("== source {0}" -f $src)
     $iso = Open-Iso $src 'source ISO'
     try {
+        Test-GameId $iso $c $false
         # ---- S2: profile
         $known = $null
         if ($c.Known.ContainsKey($iso.DolSha)) { $known = $c.Known[$iso.DolSha] }

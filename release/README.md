@@ -1,7 +1,8 @@
 # Synapse AI-only release
 
 Turns a Super Smash Bros. Melee NTSC 1.02 ISO, vanilla or a mod built on it, into one that runs the Synapse CPU AI (engine,
-CPU config menu, CPU-type selector, DI/SDI/tech/Nana reactions). You need the original ISO and this
+CPU config menu, CPU-type selector, DI/SDI/tech/Nana reactions, and the 20XX CPU rules: CPUs L-cancel, never taunt,
+Captain Falcon never rapid-jabs, Sheik/Zelda never transform, each switchable in the menu). You need the original ISO and this
 folder; nothing else is installed. The ISO itself is never included.
 
 Supported bases: vanilla NTSC 1.02, hybrid.64, Akaneia, SSBM ACE v2.0.0, and the m-ex mods SSBM Custom Stages Expansion 0.91, SSBM ULTRA v2.4 CSE 0.91 and Arcade Melee Demo 2.0;
