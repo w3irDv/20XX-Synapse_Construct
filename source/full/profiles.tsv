@@ -1,0 +1,12 @@
+# profile	variant	section_file	section_size	section_sha256	section_va	new_entry	expected_entry	placement	mex_cave_zero	static_top	strip
+# One row per (Full profile, variant). strip = '-' or the strips.tsv profile; knowledge/spec/SPEC_RELEASE_FULL_PACK.md section 3.1.
+vanilla	full	sections/vanilla.full.bin	49452	bcfcbdac310410e77fa1de3de94e869740a817ca3e8b38749f4768c4d15e382e	0x80484800	0x80484800	0x8000522C	static	0	0x817F60C4	-
+vanilla	full.wii-non-crt	sections/vanilla.full.wii-non-crt.bin	49648	7c20cc254bf61ccbff12ca467ba9f9ce8077ead57473bf16baf8242d2f4ea9d9	0x80484800	0x80484800	0x8000522C	static	0	0x817F60C4	-
+hybrid64	full	sections/hybrid64.full.bin	49416	97351fc6c378cec66590b31ab3758f62fd0ef5e1ca5992c7fa26dc114b0ed896	0x80486600	0x80486600	0x80484800	static	0	0x817F60C4	hybrid64
+hybrid64	full.wii-non-crt	sections/hybrid64.full.wii-non-crt.bin	49612	a2530470abf0581780aaceb9da522f0f43229ead4e688ce260982713ee51ee09	0x80486600	0x80486600	0x80484800	static	0	0x817F60C4	hybrid64
+hybrid64v	full	sections/hybrid64v.full.bin	49416	13ecb538fa4ed30a4bb7fed8b044431b862de274829fca4ddeab11c6a58b23f6	0x80484800	0x80484800	0x8000522C	static	0	0x817F60C4	hybrid64v
+hybrid64v	full.wii-non-crt	sections/hybrid64v.full.wii-non-crt.bin	49612	18f6791ee106cb89ea8026ff7ad81a02e20eb63b8ea4296ff7e9896704ac10e0	0x80484800	0x80484800	0x8000522C	static	0	0x817F60C4	hybrid64v
+mex	full	sections/mex.full.bin	48656	a29d30ffbda4853bff7b6e217fed6bd8548bedf23369bc5b88fbf1d55c01d0ae	0x80484800	0x80484800	0x8000522C	dynamic	1	-	-
+mex	full.wii-non-crt	sections/mex.full.wii-non-crt.bin	48852	436ef56bfc3485958ffb4fbb7411a4cd474a808c0946feca43f48b21c24c1e66	0x80484800	0x80484800	0x8000522C	dynamic	1	-	-
+silly	full	sections/silly.full.bin	47604	359bebad0e9b3fdd449220aec37835df13992d196606c99e8698b9694a71f5e7	0x80484800	0x80484800	0x8000522C	static	0	0x817F60C4	-
+silly	full.wii-non-crt	sections/silly.full.wii-non-crt.bin	47800	6a7a36005165954077e6ee1322d1f5b6765f481d3810e87980d5f42ed9b25eba	0x80484800	0x80484800	0x8000522C	static	0	0x817F60C4	-

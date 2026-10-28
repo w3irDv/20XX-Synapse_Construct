@@ -1,0 +1,29 @@
+$CPU Sheik/Zelda No Transform [20XX CPU rule, Synapse port]
+*A CPU Sheik or Zelda never transforms (aerial and grounded down-B); every other special is unchanged.
+*Human players and MANUAL CPUs are unchanged. Port of the 20XX Hack Pack CPU rule.
+*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Engine
+*Don't enable it on a Synapse ISO that already bakes this feature (it would hook the same code twice).
+C2096728 0000000B
+809F0004 2C040013
+4182000C 2C040007
+40820040 889F000C
+1C840E90 3CA08045
+60A53088 7C84282E
+2C040000 41820024
+809F1A94 2C040005
+41820018 3C608009
+606368B0 7C6903A6
+38600000 4E800420
+387E0000 00000000
+C20D68D8 0000000B
+80850004 2C040013
+4182000C 2C040007
+40820040 8885000C
+1C840E90 3CC08045
+60C63088 7C84302E
+2C040000 41820024
+80851A94 2C040005
+41820018 3C80800D
+60846918 7C8903A6
+38600000 4E800420
+80850004 00000000

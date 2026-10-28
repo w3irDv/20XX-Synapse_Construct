@@ -1,0 +1,13 @@
+# Release files must keep their line endings on every OS: the shell scripts are copied to Linux / macOS
+# as-is (a CRLF script fails with "bad interpreter" / "$'\r': command not found"), and SHA256SUMS
+# covers the data files byte for byte.
+*.sh    text eol=lf
+*.zsh   text eol=lf
+*.command text eol=lf
+*.tsv   text eol=lf
+*.md    text eol=lf
+SHA256SUMS text eol=lf
+allowed_signers text eol=lf
+*.ps1   text eol=crlf
+*.cmd   text eol=crlf
+*.bin   binary

@@ -1,0 +1,3 @@
+# profile	va	length	orig_sha256	new_sha256	file   (the hybrid UCF strip: write file at va only when the span's SHA-256 is orig_sha256)
+hybrid64	0x80486060	1300	d107fae1dc563e098b670ab38da1d8b93aefb147e3ea10b7c6e7f3ab2698ff36	93ac369c1bdf9da67af18d33b5cf6211104b463327c8ed942e782c692997fa6e	strip/hybrid64.bin
+hybrid64v	0x80191518	1700	f37da3b10bd0f22644bda2d232b909056e54f713ac83b3553cc60af100886266	dbbadbd3f8b1745cf27e875e7bf02050b4fe3b4d0ec0c410ea12e97e5f4af302	strip/hybrid64v.bin

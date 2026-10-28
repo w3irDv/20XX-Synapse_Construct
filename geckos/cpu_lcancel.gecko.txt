@@ -1,0 +1,13 @@
+$CPU Auto L-Cancel [20XX CPU rule, Synapse port]
+*Every CPU L-cancels each aerial landing. Human players and MANUAL CPUs are unchanged.
+*Port of the 20XX Hack Pack CPU rule.
+*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Engine
+*Don't enable it on a Synapse ISO that already bakes this feature (it would hook the same code twice).
+C208D68C 00000007
+88C5000C 1CC60E90
+3CE08045 60E73088
+7CC6382E 2C060000
+41820018 80C51A94
+2C060005 4182000C
+38C00000 98C5067F
+80CDAEB4 00000000

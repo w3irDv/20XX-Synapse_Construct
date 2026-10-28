@@ -1,0 +1,5 @@
+# Same compiler on every OS (Windows MSVC, Linux via WSL, macOS on Actions); eframe 0.37 needs >= 1.95.
+[toolchain]
+channel = "1.99.1"
+profile = "minimal"
+components = ["rustfmt", "clippy"]

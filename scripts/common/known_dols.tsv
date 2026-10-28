@@ -1,0 +1,11 @@
+# in_dol_sha256	profile	base_name	out_dol_size	out_dol_sha256	[game_id]
+# Boot DOLs (Start.dol, exact bytes from the section table, no trailing pad) that this release was built and tested against,
+# and the exact boot DOL the procedure must produce from each (32-byte padded, as written into the ISO).
+# game_id: only on rows whose disc is not GALE01 (e.g. GHME01, hybrid.64's vanilla build); absent = GALE01.
+dc21504513424350bda17a7c65e82371b45112a5dfc1e9f2749a8b7ab0eff646	vanilla	Melee NTSC 1.02 (vanilla)	4459264	910c3cbffb1373e75f9150685adbd23fe17f2fe1b2e028f8eab35b2d66607772
+2830aaf2dcc31ef34e4c373a193411f374064812c73433c07427558581b9207a	hybrid64	hybrid.64	4466976	de061b89ce74cc71feeb7ff040b2daca5396304c743b864da1219535f7f0f3bd
+f604e1399f2dc88e2fbbaa2b3441867ca34d00b99b82e16bee4e4ef108604805	mex	m-ex: Akaneia / SSBM ACE v2.0.0 / SSBM Custom Stages Expansion 0.91 (same DOL)	4459456	395d57bca2882c83331f69d18002bcf03103638fdcc2cd1af5d8404c295229e3
+540d05520d716a4570ae9aad78616f65d441a3978dd607f5c3104dfb449b7b4a	mex	m-ex: SSBM ULTRA v2.4 CSE 0.91	4459456	a8f3fb75ecf26b766a9f6e0e9f336ff9fbdd783eb1dcab3107c2b6124b71b8f6
+dee2d82b5f89738957da2ce161b42ea0e1da633deab2e1e26b08b20fe1e340c8	mex	m-ex: Arcade Melee Demo 2.0	4459456	a658f491de3d8c87379a63f68bc648e78764f862dc9c56187e9892ad36e74f30
+7a7b5571497199a4eac7bcba5e94442c4ccde92428b5c92e7c502a51265005ca	vanilla	Silly Melee v1.01	4459264	f2c1f11afdc39fbd9df30be34a728b6396f96f01daaa2001cbb0ba7b52a87830
+9fa4bfa494a2936f3186d5f66ed9203d136111bbe758c8a4c8b1716e9b83b2b8	vanilla	hybrid.64 v3.2 (vanilla build, GHME01)	4459264	a7f98eb26076da44b20264c5afbf418b0144f6ae0876cc0d1e93470874351901	GHME01

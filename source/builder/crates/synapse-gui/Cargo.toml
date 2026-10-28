@@ -1,0 +1,13 @@
+[package]
+name = "synapse-gui"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+license.workspace = true
+
+[dependencies]
+eframe = "0.37.0"
+rfd = "0.17.2"
+env_logger = "0.11"
+log = "0.4"
+synapse-core = { path = "../synapse-core" }
