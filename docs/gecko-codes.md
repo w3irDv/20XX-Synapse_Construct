@@ -34,7 +34,7 @@ Gecko Codes → Add New Code, paste the code lines (the name from the `$` line),
 | `sss_last_page.gecko.txt` | the stage select reopens on the page last used | m-ex | 37 |
 | `stage_random_pool.gecko.txt` | random stages from a pool you edit on the stage select (D-pad Left); CSS D-pad Down starts on a pool stage; A+Y at GAME! = rematch on the next pool stage | vanilla, hybrid.64, m-ex (**not** Silly Melee) | 333 |
 | `stage_random_pool.silly.gecko.txt` | the same, for Silly Melee | Silly Melee | 329 |
-| `character_random_pool.offline.gecko.txt` | per-port random-character pools for you and your CPUs, edited with the D-pad on the CSS; Fixed / Instant / Mystery coin modes. A fork of [Enhanced Random Character](https://github.com/2gifts/SSBMEnhancedRandomCharacter); its notes list what changed | vanilla, m-ex | 405 |
+| `character_random_pool.offline.gecko.txt` | per-port random-character pools for you and your CPUs, edited with the D-pad on the CSS; Fixed / Instant / Mystery coin modes. A fork of [Enhanced Random Character](https://github.com/2gifts/SSBMEnhancedRandomCharacter); its notes list what changed | vanilla, m-ex | 399 |
 
 Not here, because they only work inside a Synapse ISO (they read the Synapse menu's settings): Random Stage Music,
 the L-cancel chance, the switchable CSS Stars, the Arcade camera timer fix, Memcard Options.

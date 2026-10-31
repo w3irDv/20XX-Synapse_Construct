@@ -1,14 +1,14 @@
 $Enhanced Random Character (RandomPool) [offline] [Enhanced Random Character contributors, Synapse fork]
 *Per-port random-character pools on the VS character select screen, for you and for the CPUs you set.
 *D-pad Left / Right on a portrait: toggle it in your pool / your CPU pool (on your own card: clear it).
-*Coin on a portrait = Fixed; on the left random strip = Instant (visible pick); on the mystery zone = Mystery (hidden, revealed at match load).
+*Coin on a portrait = Fixed. Holding a coin, hold C-stick Left ~1 s (hand still) = Instant (visible pick), C-stick Right = Mystery (hidden, revealed at match load). The game's own random drop also gives Instant.
 *Vanilla 1.02 and m-ex (ACE, Akaneia), auto-detected.
-*SIZE WARNING: 405 code lines, nearly all of the ~408 that Dolphin (and console loaders such as Nintendont) hold for ALL enabled codes together, Dolphin's own enabled GALE01 codes included.
+*SIZE WARNING: 399 code lines, nearly all of the ~408 that Dolphin (and console loaders such as Nintendont) hold for ALL enabled codes together, Dolphin's own enabled GALE01 codes included.
 *Enable it ALONE: if the enabled codes go over the limit, NONE of them is applied (Dolphin shows "Ran out of memory applying gecko codes"), this one included.
 *Don't enable it on a Synapse ISO built with the Character Random Pool (it would hook the same sites twice).
 *Fork of https://github.com/2gifts/SSBMEnhancedRandomCharacter (MIT; Copyright (c) 2026 the Enhanced Random Character contributors). Fork changes: Copyright (c) 2026 w3irDv, MIT.
 *Fixed vs upstream: console halt (costume reset written to unmapped 0x008C78DD); Ready read the wrong slot's flag; a Mystery CPU came back closed (N/A) after a match or Rules; state block at 0x804D6AA0 overwritten by stage setup (moved to 0x8032E880); m-ex READY TO FIGHT while carrying another slot's coin (memp_kouho crash).
-*Added vs upstream: a CPU pool per human; pools edited with the D-pad instead of L / R (ACE uses L for Beyond Melee variants); 120-icon pools (ACE's Roy, Lucina, Mr. Game & Watch poolable); Fixed / Instant / Mystery kept per slot across matches, a carried coin rolls from the carrier's pool; Mystery also resolves on D-pad Down; the toggle aims where the hand points.
+*Added vs upstream: a CPU pool per human; pools edited with the D-pad instead of L / R (ACE uses L for Beyond Melee variants); 120-icon pools (ACE's Roy, Lucina, Mr. Game & Watch poolable); Fixed / Instant / Mystery kept per slot across matches, a carried coin rolls from the carrier's pool; Mystery also resolves on D-pad Down; the toggle aims where the hand points; Instant / Mystery set by holding the C-stick instead of a drop zone (the same on every mod's grid).
 *Lost vs upstream: Slippi-online CSS support (offline only; use upstream for netplay).
 *Not in this paste code (baked Synapse builds only): pooled portraits lit on the CSS; each pool member drawn once per round (here every pick is independent).
 C225FB74 00000038
@@ -316,52 +316,46 @@ C22640A0 0000001A
 992B002E 806B0020
 808B0024 7C0802A6
 60000000 00000000
-C22609F4 0000002D
-579505EF 4182015C
-896DB656 280B0000
-40820150 3D608032
-616BE880 818B0018
-280C0000 41820010
-C062CAD8 C082CADC
-4800001C 3D0041F0
-910B0020 C06B0020
-3D004206 910B0020
-C08B0020 566C103A
-3D40804A 614A0BD0
-7D4A602E 280A0000
-41820100 C02A0008
-C04A000C C002CACC
-FC020040 408100EC
-3D0040C6 61086666
-910B0020 C00B0020
-FC020040 408000D4
-FC011840 408100CC
-FC012040 408000C4
-3D40804D 898A6CF5
-280C0001 418200B4
-394B0030 39200001
-7D2A99AE 39200000
-394B003C 7D2A99AE
-899F0004 7C0C9800
-41820008 392C0001
-394B0038 7D2A99AE
-566C103A 395A0010
-7D4A602E 39200000
-992A0005 993F0005
-1D930024 3D40803F
-614A0DFC 7D4A6214
-812B0010 992A000E
-814DB610 7D4A6214
-812B0014 992A0070
-5663063E 3D808025
-618CDB34 7D8903A6
-4E800421 386000B8
-3880007F 38A00040
-3D808002 618C37A8
+C22609F4 00000027
+579505EF 896DB656
+280B0000 40820120
+3D608032 616BE880
+899F0004 1D8C0044
+3D40804C 614A20BC
+7D4A6214 812A000C
+7D29E078 752A00C0
+418200F4 3D40804D
+898A6CF5 280C0001
+418200E4 752A0040
+408200B4 394B0030
+39200001 7D2A99AE
+39200000 394B003C
+7D2A99AE 899F0004
+7C0C9800 41820008
+392C0001 394B0038
+7D2A99AE 566C103A
+395A0010 7D4A602E
+39200000 992A0005
+993F0005 1D930024
+3D40803F 614A0DFC
+7D4A6214 812B0010
+992A000E 814DB610
+7D4A6214 812B0014
+992A0070 5663063E
+3D808025 618CDB34
 7D8903A6 4E800421
-3D808026 618C22A8
-7D8903A6 4E800420
-579505EF 00000000
+386000B8 3880007F
+38A00040 3D808002
+618C37A8 7D8903A6
+4E800421 3D808026
+618C22A8 7D8903A6
+4E800420 818B0018
+280C0000 41820010
+3D808026 618C0A58
+4800000C 3D808026
+618C0AD8 7D8903A6
+4E800420 579505EF
+60000000 00000000
 C226304C 00000007
 8803000E 3D608032
 616BE880 818B0010

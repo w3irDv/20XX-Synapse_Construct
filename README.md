@@ -20,6 +20,21 @@ It also drives characters added by Akaneia or SSBM ACE: by default they play the
 own moves); the menu's **ADDED FIGHTERS PLAY AS** line picks another character, or OFF for Melee's own CPU. Your
 original ISO is never modified: Synapse writes a new one.
 
+### Random match
+
+The Full package includes a character random pool and a stage random pool. To face a random CPU on a random stage:
+
+1. On the character select screen, put your hand over each fighter you want to face and press **D-Right**: it joins
+   your CPU pool.
+2. Pick up the CPU's coin and hold **C-stick Right** for about 1 second, keeping the hand still: the CPU's card stays
+   blank (**Mystery**), and its fighter is drawn from your CPU pool when the match loads.
+3. On the stage select screen, put the cursor on each stage you want and press **D-Left**: it joins the stage pool.
+   Then choose **RANDOM** to start the match on a stage from the pool.
+
+Pools and modes are kept from match to match: the next time you are on the character select screen, once everyone is
+ready, press **D-Down** to start a new random match right away (the stage select is skipped). Every pool control:
+[docs/CONTROLS.md](docs/CONTROLS.md#random-pools-full-package).
+
 ## Why Synapse?
 
 20XX Melee Training Hack Pack is one of the most incredible Melee mods of all time. Apart from its huge number of
@@ -47,7 +62,7 @@ Engine to your preferred mod and enjoy the best of both worlds? That's what Syna
 
 ## What you need
 
-- **A Melee NTSC 1.02 ISO** you own, uncompressed (`.iso` / `.gcm`), **without** Synapse already in it:
+- **A Melee NTSC 1.02 ISO** you own, vanilla or modded, uncompressed (`.iso` / `.gcm`), **without** Synapse already in it:
   - vanilla Melee NTSC 1.02 (Tournament Mode keeps working);
   - hybrid.64 v3.2 (Slippi or vanilla build), Akaneia or SSBM ACE v2.0.0;
   - Silly Melee v1.01;
@@ -104,8 +119,8 @@ Everything uses **controller 1**. The most used buttons:
 | **Z + D-Up** | open the **CPU config menu** (the match freezes); move and change values with the **stick**, **START** closes it |
 
 The menu tunes how the 20XX AI plays (aggression, shield and out-of-shield habits, SHFFL aerials, DI, tech and getup
-choices, …), holds the 20XX CPU rules and, in Full, the GLOBAL CONFIGURATION features. Every button and option:
-[docs/CONTROLS.md](docs/CONTROLS.md).
+choices, …), holds the 20XX CPU rules and, in Full, the GLOBAL CONFIGURATION features. Every button and option, and the random pools'
+controls: [docs/CONTROLS.md](docs/CONTROLS.md).
 
 ## After the build
 
@@ -133,7 +148,7 @@ Synapse's own codes (the 20XX CPU rules, CSS Stars, the random pools, …), for 
 |---|---|
 | [docs/builder.md](docs/builder.md) | the Synapse Builder: window, console, packages, untested ISOs |
 | [docs/scripts-windows.md](docs/scripts-windows.md), [docs/scripts-linux.md](docs/scripts-linux.md) | the AI-only scripts |
-| [docs/CONTROLS.md](docs/CONTROLS.md) | every in-match button and menu option |
+| [docs/CONTROLS.md](docs/CONTROLS.md) | every in-match button and menu option, and the random pools on the character / stage select screens |
 | [docs/BUILD_DETAILS.md](docs/BUILD_DETAILS.md) | how the builders judge an ISO: eligible ISOs, untested ISOs, added content, checks, exit codes |
 | [docs/gecko-codes.md](docs/gecko-codes.md) | the paste-ready Gecko codes and the community codes Synapse bakes |
 | [`source/builder`](source/builder/) | for rebuilding the executables: the Rust source (and, next to it, `source/full`, the Full pack) |
@@ -153,7 +168,6 @@ includes without a licence is credited in [NOTICE.md](NOTICE.md).
 * Thanks to the SSBM ACE team for [SSBM ACE](https://github.com/Chri222k/ACE-BUILD-PUBLIC-/), which Synapse also supports.
 * Thanks to Cjag for bringing us [Hybrid 64](https://gamebanana.com/mods/40702), which, besides being so much fun to play, also taught us a practical lesson on how to safely extend a DOL.
 * Thanks to the Silly Melee team for [Silly Melee](https://smashboards.com/threads/silly-melee-released-today.426631/), which Synapse also supports.
-* Thanks to the authors of the community Gecko codes the Full package includes: see [NOTICE.md](NOTICE.md).
-* Thanks to 2gifts for Enhanced Random Character gecko.
+* Thanks to the authors of the community Gecko codes the Full package includes, and to the Enhanced Random Character contributors: see [NOTICE.md](NOTICE.md).
 * Thanks to the Melee modding community for the GALE01 symbol map and years of shared research.
 * The injection code has been AI-(reverse-)engineered using as a base the original 20XX Hack Pack, m-ex repos and Hybrid 64 binaries.

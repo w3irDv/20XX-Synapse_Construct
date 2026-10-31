@@ -166,7 +166,7 @@ When you build an untested ISO, the script prints a block like this:
 
 ```text
 == REPORT (untested ISO: copy this block when you report how it went)
-  release data : a8547298cad6
+  release data : 13d3d184ff70
   iso          : SSBM 0.91 ULTRA v2.4.iso (1438710620 B)
   game code    : SHA-256 540d05520d716a4570ae9aad78616f65d441a3978dd607f5c3104dfb449b7b4a (not in known_dols.tsv)
   profile      : mex

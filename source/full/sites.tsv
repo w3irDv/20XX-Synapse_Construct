@@ -150,6 +150,8 @@ vanilla	0x8025F2B8	0x880DB655	c2	character-random-pool	-
 vanilla	0x8025FB50	0x7C0802A6	context	character-random-pool	-
 vanilla	0x8025FB74	0x48120A0D	c2	character-random-pool	-
 vanilla	0x802609F4	0x579505EF	c2	character-random-pool	-
+vanilla	0x80260A58	0x38000005	context	character-random-pool	-
+vanilla	0x80260AD8	0x5663063E	context	character-random-pool	-
 vanilla	0x80260AE0	0x4BFFF071	context	character-random-pool	-
 vanilla	0x80260BA8	0x981F0005	context	character-random-pool	-
 vanilla	0x802620C8	0x7C0830AE	c2	character-random-pool	-
@@ -356,6 +358,8 @@ hybrid64	0x8025F2B8	0x880DB655	c2	character-random-pool	-
 hybrid64	0x8025FB50	0x7C0802A6	context	character-random-pool	-
 hybrid64	0x8025FB74	0x48120A0D	c2	character-random-pool	-
 hybrid64	0x802609F4	0x579505EF	c2	character-random-pool	-
+hybrid64	0x80260A58	0x38000005	context	character-random-pool	-
+hybrid64	0x80260AD8	0x5663063E	context	character-random-pool	-
 hybrid64	0x80260AE0	0x4BFFF071	context	character-random-pool	-
 hybrid64	0x80260BA8	0x981F0005	context	character-random-pool	-
 hybrid64	0x802620C8	0x7C0830AE	c2	character-random-pool	-
@@ -562,6 +566,8 @@ hybrid64v	0x8025F2B8	0x880DB655	c2	character-random-pool	-
 hybrid64v	0x8025FB50	0x7C0802A6	context	character-random-pool	-
 hybrid64v	0x8025FB74	0x48120A0D	c2	character-random-pool	-
 hybrid64v	0x802609F4	0x579505EF	c2	character-random-pool	-
+hybrid64v	0x80260A58	0x38000005	context	character-random-pool	-
+hybrid64v	0x80260AD8	0x5663063E	context	character-random-pool	-
 hybrid64v	0x80260AE0	0x4BFFF071	context	character-random-pool	-
 hybrid64v	0x80260BA8	0x981F0005	context	character-random-pool	-
 hybrid64v	0x802620C8	0x7C0830AE	c2	character-random-pool	-
@@ -774,6 +780,8 @@ mex	0x8025F2B8	0x880DB655	c2	character-random-pool	-
 mex	0x8025FB50	0x7C0802A6	context	character-random-pool	-
 mex	0x8025FB74	0x48120A0D	c2	character-random-pool	-
 mex	0x802609F4	0x579505EF	c2	character-random-pool	-
+mex	0x80260A58	0x38000005	context	character-random-pool	-
+mex	0x80260AD8	0x5663063E	context	character-random-pool	-
 mex	0x80260AE0	0x4BFFF071	context	character-random-pool	-
 mex	0x80260BA8	0x981F0005	context	character-random-pool	-
 mex	0x802620C8	0x7C0830AE	c2	character-random-pool	-
@@ -980,6 +988,8 @@ silly	0x8025F2B8	0x880DB655	c2	character-random-pool	-
 silly	0x8025FB50	0x7C0802A6	context	character-random-pool	-
 silly	0x8025FB74	0x48120A0D	c2	character-random-pool	-
 silly	0x802609F4	0x579505EF	c2	character-random-pool	-
+silly	0x80260A58	0x38000005	context	character-random-pool	-
+silly	0x80260AD8	0x5663063E	context	character-random-pool	-
 silly	0x80260AE0	0x4BFFF071	context	character-random-pool	-
 silly	0x80260BA8	0x981F0005	context	character-random-pool	-
 silly	0x802620C8	0x7C0830AE	c2	character-random-pool	-

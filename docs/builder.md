@@ -124,7 +124,7 @@ After building an untested ISO, the builder shows a **REPORT** block (the window
 
 ```text
 == REPORT (untested ISO: copy this block when you report how it went)
-  release data : a8547298cad6
+  release data : 13d3d184ff70
   iso          : SSBM 0.91 ULTRA v2.4.iso (1438710620 B)
   game code    : SHA-256 540d0552… (not in known_dols.tsv)
   profile      : mex

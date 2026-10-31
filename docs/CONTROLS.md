@@ -1,4 +1,4 @@
-# In-match controls: CPU selector and CPU config menu
+# Controls: CPU selector, CPU config menu and random pools
 
 A Synapse ISO adds two tools you use **during a match**, both from **controller 1**:
 
@@ -6,6 +6,9 @@ A Synapse ISO adds two tools you use **during a match**, both from **controller 
 - the **CPU config menu**: an on-screen menu (**Z + D-Up**) to fine-tune how the Synapse AI plays.
 
 Neither needs the pause menu; both work in any VS match with CPU players.
+
+The Full package also adds **random pools** on the character and stage select screens: see
+[Random pools](#random-pools-full-package).
 
 ## The CPU selector
 
@@ -156,6 +159,59 @@ other m-ex builds) the page has a fifth line, ADDED FIGHTERS PLAY AS.
 | BLOCK FALCON RAPID JAB | YES, NO | YES | YES: a Captain Falcon CPU never starts its rapid jab (it can still jab) |
 | BLOCK SHEIK/ZELDA TRANSFORM | YES, NO | YES | YES: a Sheik or Zelda CPU never transforms with down-B |
 | ADDED FIGHTERS PLAY AS *(m-ex only)* | CAPTAIN FALCON, PEACH, MARTH, PIKACHU, FALCO, FOX, DK, YOUNG LINK, DR. MARIO, GAME & WATCH, ZELDA, MARIO, ROY, OFF (VANILLA AI) | DK | which original character's 20XX tactics a fighter the mod added uses when it is a type-4 CPU (it still uses its own moves). OFF: added fighters play with the game's normal CPU instead. Applies from the next frame, kept until you turn the console off (a soft reset keeps it) |
+
+## Random pools (Full package)
+
+Two features of the Full package let you choose **which** characters and stages "random" can give. They work on the
+character and stage select screens, with **any** controller (each player has their own pools), and the pools last
+until the console is turned off. An empty pool means the game's normal random.
+
+### Character random pool (character select screen)
+
+Each player has two pools: **your pool** (for your own random picks) and **your CPU pool** (for the CPUs you set).
+
+| Buttons | What it does |
+|---|---|
+| hand over a character, **D-Left** | add it to / remove it from **your pool** (pooled portraits stay lit) |
+| hand over a character, **D-Right** | add it to / remove it from **your CPU pool** |
+| hand over **your own card** (bottom of the screen), **D-Left** | **empty** your pool |
+| hand over **your own card**, **D-Right** | **empty** your CPU pool |
+
+Each slot has a **mode**, kept from match to match until you change it:
+
+| How | Mode |
+|---|---|
+| drop the coin on a portrait (A) | **Fixed**: that character every match |
+| holding a coin, hold **C-stick Left** about 1 second, hand still | **Instant**: a random character from the pool, shown at once; a new one each time you come back to this screen (hold again to re-roll now) |
+| holding a coin, drop it with A where the game gives a random character (vanilla: the strips left and right of the bottom row; Akaneia / ACE: anywhere with no portrait under the coin, e.g. just above the top row) | **Instant**, as above |
+| holding a coin, hold **C-stick Right** about 1 second, hand still | **Mystery**: the card stays blank; a hidden random character, revealed when the match loads, new every match |
+
+- **Setting a CPU:** pick up the CPU's coin with your hand and do the same: the CPU rolls from **your CPU pool**.
+  Your own coin rolls from **your pool**.
+- A short flick of the C-stick, or holding it while the hand moves, does nothing (the screen only tilts a little:
+  the game does that with the C-stick on every menu).
+- Each slot draws every character of its pool once before any comes again (pools of up to 32); changing a pool starts
+  over.
+- A Mystery character is drawn when the match starts (START, or D-Down with the stage pool below).
+
+| To undo | Do |
+|---|---|
+| your own **Mystery** | **B** over the characters takes your hidden coin back (the mystery is cancelled); drop it on a portrait, or set a mode again |
+| a CPU's **Mystery** | its coin is hidden and can't be picked up: switch the slot to **N/A** and back to **CPU** (closing a slot clears its mode) |
+| **Instant** (yours or a CPU's) | pick the coin up and drop it on a portrait |
+
+### Stage random pool (stage select screen)
+
+| Where | Buttons | What it does |
+|---|---|---|
+| stage select, cursor on a stage | **D-Left** | add it to / remove it from the stage pool (pooled stages stay highlighted) |
+| stage select, cursor on **RANDOM** or on no stage | **D-Left** | **empty** the stage pool |
+| stage select | **START** with no stage chosen, or **RANDOM** | a stage from the pool (also the Rules' random stage selection and Tournament) |
+| character select, everyone ready | **D-Down** | start the match right away on a stage from the pool (the stage select is skipped) |
+| end of a VS match, while GAME! is on screen | hold **A + Y** | instant rematch: same characters, the next stage from the pool |
+
+Every stage of the pool comes once before any comes again. With an empty pool: Akaneia / ACE pick from every stage on
+every page, other bases use the game's own random. On Slippi online both pools are off.
 
 ## Troubleshooting
 
