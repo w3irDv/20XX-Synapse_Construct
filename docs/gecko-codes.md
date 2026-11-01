@@ -23,18 +23,18 @@ Gecko Codes → Add New Code, paste the code lines (the name from the `$` line),
 
 | File | What it does | Bases | Code lines |
 |---|---|---|---|
-| `cpu_lcancel.gecko.txt` | CPUs L-cancel every aerial landing (20XX Hack Pack rule) | any | 8 |
-| `cpu_no_taunt.gecko.txt` | CPUs never taunt (20XX rule) | any | 9 |
-| `cpu_falcon_no_rapid_jab.gecko.txt` | a CPU Captain Falcon never rapid-jabs (20XX rule) | any | 10 |
-| `cpu_no_transform.gecko.txt` | a CPU Sheik / Zelda never transforms (20XX rule) | any | 24 |
-| `css_stars_wins.gecko.txt` | CSS stars count games won, 20XX rules (use this **or** the KOs one) | any | 39 |
-| `css_stars_kos.gecko.txt` | CSS stars count KOs, once per match, CPUs too (fixes the m-ex double count) | any | 25 |
-| `widescreen_results_43.gecko.txt` | add-on to the community **Widescreen 16:9** code (enable both): keeps the VS results screen in its 4:3 frame | any | 13 |
-| `cpu_attack_list_guard.gecko.txt` | stops the CPU crash at `0x800B5084` with added fighters | m-ex (Akaneia, SSBM ACE) | 6 |
-| `sss_last_page.gecko.txt` | the stage select reopens on the page last used | m-ex | 37 |
-| `stage_random_pool.gecko.txt` | random stages from a pool you edit on the stage select (D-pad Left); CSS D-pad Down starts on a pool stage; A+Y at GAME! = rematch on the next pool stage | vanilla, hybrid.64, m-ex (**not** Silly Melee) | 333 |
-| `stage_random_pool.silly.gecko.txt` | the same, for Silly Melee | Silly Melee | 329 |
-| `character_random_pool.offline.gecko.txt` | per-port random-character pools for you and your CPUs, edited with the D-pad on the CSS; Fixed / Instant / Mystery coin modes. A fork of [Enhanced Random Character](https://github.com/2gifts/SSBMEnhancedRandomCharacter); its notes list what changed | vanilla, m-ex | 399 |
+| [`cpu_lcancel.gecko.txt`](../geckos/cpu_lcancel.gecko.txt) | CPUs L-cancel every aerial landing (20XX Hack Pack rule) | any | 8 |
+| [`cpu_no_taunt.gecko.txt`](../geckos/cpu_no_taunt.gecko.txt) | CPUs never taunt (20XX rule) | any | 9 |
+| [`cpu_falcon_no_rapid_jab.gecko.txt`](../geckos/cpu_falcon_no_rapid_jab.gecko.txt) | a CPU Captain Falcon never rapid-jabs (20XX rule) | any | 10 |
+| [`cpu_no_transform.gecko.txt`](../geckos/cpu_no_transform.gecko.txt) | a CPU Sheik / Zelda never transforms (20XX rule) | any | 24 |
+| [`css_stars_wins.gecko.txt`](../geckos/css_stars_wins.gecko.txt) | CSS stars count games won, 20XX rules (use this **or** the KOs one) | any | 39 |
+| [`css_stars_kos.gecko.txt`](../geckos/css_stars_kos.gecko.txt) | CSS stars count KOs, once per match, CPUs too (fixes the m-ex double count) | any | 25 |
+| [`widescreen_results_43.gecko.txt`](../geckos/widescreen_results_43.gecko.txt) | add-on to the community **Widescreen 16:9** code (enable both): keeps the VS results screen in its 4:3 frame | any | 13 |
+| [`cpu_attack_list_guard.gecko.txt`](../geckos/cpu_attack_list_guard.gecko.txt) | stops the CPU crash at `0x800B5084` with added fighters | m-ex (Akaneia, SSBM ACE) | 6 |
+| [`sss_last_page.gecko.txt`](../geckos/sss_last_page.gecko.txt) | the stage select reopens on the page last used | m-ex | 37 |
+| [`stage_random_pool.gecko.txt`](../geckos/stage_random_pool.gecko.txt) | random stages from a pool you edit on the stage select (D-pad Left); CSS D-pad Down starts on a pool stage; A+Y at GAME! = rematch on the next pool stage | vanilla, hybrid.64, m-ex (**not** Silly Melee) | 333 |
+| [`stage_random_pool.silly.gecko.txt`](../geckos/stage_random_pool.silly.gecko.txt) | the same, for Silly Melee | Silly Melee | 329 |
+| [`character_random_pool.offline.gecko.txt`](../geckos/character_random_pool.offline.gecko.txt) | per-port random-character pools for you and your CPUs, edited with the D-pad on the CSS; Fixed / Instant / Mystery coin modes. A fork of [Enhanced Random Character](https://github.com/2gifts/SSBMEnhancedRandomCharacter); its notes list what changed | vanilla, m-ex | 399 |
 
 Not here, because they only work inside a Synapse ISO (they read the Synapse menu's settings): Random Stage Music,
 the L-cancel chance, the switchable CSS Stars, the Arcade camera timer fix, Memcard Options.
