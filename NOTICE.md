@@ -55,7 +55,7 @@ author and want your work credited differently or removed, open an issue.
 |---|---|---|
 | 20XX AI Engine (from the 20XX Melee Training Hack Pack), shipped patched | Achilles1515, expanded by DRGN-DRC | both packs |
 | Universal Controller Fix 0.84 | Altimor, PracticalTAS, CarVac, Krohnos | Full packs |
-| Normal C-Stick in DEVELOP mode | Magus, Achilles | Full packs (vanilla) |
+| Normal C-Stick in DEVELOP mode | Magus, Achilles1515 | Full packs (vanilla) |
 | Normal C-Stick in 1P mode | Zauron | Full packs (vanilla) |
 | Flash Red on failed L-cancel | Achilles1515, Fizzi | Full packs |
 | Swap Z and Y (Z-Jump) | Altimor | Full packs |

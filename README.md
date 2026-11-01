@@ -12,32 +12,18 @@ The 20XX AI is the "advanced" CPU from the 20XX Training Hack Pack: it wavedashe
 out of shield, techs and DIs, recovers and edgeguards. Synapse adds it to your Melee mod together with:
 
 - a **CPU selector** on the D-pad and a **CPU config menu** (see [In a match](#in-a-match));
-- the 20XX **DI, smash DI, tech and Nana-throw** reactions;
-- the 20XX **CPU rules**: CPUs L-cancel, never taunt, Captain Falcon never rapid-jabs, Sheik / Zelda never transform,
-  each switchable in the menu.
+- the 20XX **DI, smash DI, tech and Nana-throw** reactions, and the 20XX **CPU rules** (CPUs L-cancel, Sheik / Zelda never transform, …), each switchable in the menu;
+- support for characters added by Akaneia or SSBM ACE: by default they play the 20XX AI as Donkey Kong (with their
+  own moves); the menu's **ADDED FIGHTERS PLAY AS** line picks another character, or OFF for Melee's own CPU;
+- some crash fixes;
+- with the **Full** package, QoL hacks: [pooled random match](#random-match) and, on m-ex mods (Akaneia, SSBM ACE), the
+  stage select screen reopening on its last page.
 
-It also drives characters added by Akaneia or SSBM ACE: by default they play the 20XX AI as Donkey Kong (with their
-own moves); the menu's **ADDED FIGHTERS PLAY AS** line picks another character, or OFF for Melee's own CPU. Your
-original ISO is never modified: Synapse writes a new one.
-
-### Random match
-
-The Full package includes a character random pool and a stage random pool. To face a random CPU on a random stage:
-
-1. On the character select screen, put your hand over each fighter you want to face and press **D-Right**: it joins
-   your CPU pool.
-2. Pick up the CPU's coin and hold **C-stick Right** for about 1 second, keeping the hand still: the CPU's card stays
-   blank (**Mystery**), and its fighter is drawn from your CPU pool when the match loads.
-3. On the stage select screen, put the cursor on each stage you want and press **D-Left**: it joins the stage pool.
-   Then choose **RANDOM** to start the match on a stage from the pool.
-
-Pools and modes are kept from match to match: the next time you are on the character select screen, once everyone is
-ready, press **D-Down** to start a new random match right away (the stage select is skipped). Every pool control:
-[docs/CONTROLS.md](docs/CONTROLS.md#random-pools-full-package).
+Your original ISO is never modified: Synapse writes a new one.
 
 ## Why Synapse?
 
-20XX Melee Training Hack Pack is one of the most incredible Melee mods of all time. Apart from its huge number of
+The 20XX Melee Training Hack Pack is one of the most incredible Melee mods of all time. Apart from its huge number of
 stages and endless tunes, it brings you a killer AI engine that is light-years apart from the vanilla Melee one that
 all other mods inherit. I like to play solo, and after playing against a 20XX Fox, all other mods seem really
 boring... But I also like to play new stages, new characters and different music... so why not connect the 20XX AI
@@ -54,10 +40,11 @@ Engine to your preferred mod and enjoy the best of both worlds? That's what Syna
 
 **The two packages:**
 
-- **AI-only**: everything listed above. Output `<name>.aionly.iso`.
+- **AI-only**: everything listed above, except the Full-only QoL hacks. Output `<name>.aionly.iso`.
 - **Full**: AI-only plus the **GLOBAL CONFIGURATION** menu and the community features, each switched on or off **in
   game** (options saved to the memory card): UCF 0.84, Flash Red on a failed L-cancel, Z-Jump, true widescreen, the
-  Arcade Melee camera, hitbox display, random stage music, CSS Stars, the character and stage random pools. A variant
+  Arcade Melee camera, hitbox display, random stage music, CSS Stars, the character and stage random pools; on m-ex the
+  stage select also reopens on its last page. A variant
   for a **real Wii on a flat screen** adds Force 480p and the polling-drift fix. Output `<name>.full.iso`. Builder only.
 
 ## What you need
@@ -105,6 +92,21 @@ ssh-keygen -Y verify -f allowed_signers -I w3irDv -n file -s SHA256SUMS.txt.sig 
 A good download prints `OK` for your archive and `Good "file" signature for w3irDv`. `ssh-keygen` comes with
 OpenSSH: on Windows 10 / 11 it is the optional feature **OpenSSH Client** (Settings → System → Optional features),
 usually already installed; on Linux, the `openssh-client` package.
+
+## Random match
+
+The Full package includes a character random pool and a stage random pool. To face a random CPU on a random stage:
+
+1. On the character select screen, put your hand over each fighter you want to face and press **D-Right**: it joins
+   your CPU pool.
+2. Pick up the CPU's coin and hold **C-stick Right** for about 1 second, keeping the hand still: the CPU's card stays
+   blank (**Mystery**), and its fighter is drawn from your CPU pool when the match loads.
+3. On the stage select screen, put the cursor on each stage you want and press **D-Left**: it joins the stage pool.
+   Then choose **RANDOM** to start the match on a stage from the pool.
+
+Pools and modes are kept from match to match: the next time you are on the character select screen, once everyone is
+ready, press **D-Down** to start a new random match right away (the stage select is skipped). Every pool control:
+[docs/CONTROLS.md](docs/CONTROLS.md#random-pools-full-package).
 
 ## In a match
 
@@ -168,6 +170,7 @@ includes without a licence is credited in [NOTICE.md](NOTICE.md).
 * Thanks to the SSBM ACE team for [SSBM ACE](https://github.com/Chri222k/ACE-BUILD-PUBLIC-/), which Synapse also supports.
 * Thanks to Cjag for bringing us [Hybrid 64](https://gamebanana.com/mods/40702), which, besides being so much fun to play, also taught us a practical lesson on how to safely extend a DOL.
 * Thanks to the Silly Melee team for [Silly Melee](https://smashboards.com/threads/silly-melee-released-today.426631/), which Synapse also supports.
-* Thanks to the authors of the community Gecko codes the Full package includes, and to the Enhanced Random Character contributors: see [NOTICE.md](NOTICE.md).
+* Thanks to the authors of the community Gecko codes the Full package includes, Achilles1515, Aitch, Altimor, CarVac, Dan Salvato, Fizzi, Krohnos, Magus, mirrorbender, PracticalTAS, Punkline, tauKhan, UnclePunch and Zauron: see [NOTICE.md](NOTICE.md).
+* Thanks to 2gifts for the Enhanced Random Character Gecko code.
 * Thanks to the Melee modding community for the GALE01 symbol map and years of shared research.
 * The injection code has been AI-(reverse-)engineered using as a base the original 20XX Hack Pack, m-ex repos and Hybrid 64 binaries.

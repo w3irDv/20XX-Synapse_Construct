@@ -51,7 +51,7 @@ collection (each link opens the section that holds the code), or, for UCF, its a
 | Code | Authors | Where to get it |
 |---|---|---|
 | Universal Controller Fix 0.84 | Altimor, PracticalTAS, CarVac, Krohnos | [AltimorTASDK/ucf](https://github.com/AltimorTASDK/ucf) (the source of UCF 0.84, built with cpp2gecko; Slippi ships 0.84 ready to use. The SuperCombo Wiki lists only v0.80) |
-| Normal C-Stick Functionality in DEVELOP Mode | Magus, Achilles | [SuperCombo Wiki: DEVELOP Mode Codes](https://wiki.supercombo.gg/w/SSBM/Gecko_Codes#DEVELOP_Mode_Codes) |
+| Normal C-Stick Functionality in DEVELOP Mode | Magus, Achilles1515 | [SuperCombo Wiki: DEVELOP Mode Codes](https://wiki.supercombo.gg/w/SSBM/Gecko_Codes#DEVELOP_Mode_Codes) |
 | Normal C-Stick Functionality in 1P Mode | Zauron | [SuperCombo Wiki: Alter SSBM's Existing Game Mechanics](https://wiki.supercombo.gg/w/SSBM/Gecko_Codes#Alter_SSBM's_Existing_Game_Mechanics_and_Game_Types) |
 | Flash Red on Failed L-Cancel | Achilles1515, Fizzi | [SuperCombo Wiki: Character Model Display and Color Overlay Codes](https://wiki.supercombo.gg/w/SSBM/Gecko_Codes#Character_Model_Display_and_Color_Overlay_Codes) |
 | Swap Z and Y (Z-Jump), per port | Altimor | [SuperCombo Wiki: Z-Jump Codes (Offline Only)](https://wiki.supercombo.gg/w/SSBM/Gecko_Codes#Codes_for_a_Competitive_Setting) |
