@@ -184,7 +184,8 @@ tick **Unblock**). Run `synapse-cli.exe` from PowerShell or Command Prompt.
 the XDG desktop portal, or `zenity` if there is no portal; with neither, the window says so, and typing or pasting the
 path always works. Dragging an ISO onto the window hasn't been tested on Linux yet.
 
-**macOS.** Not in this release.
+**macOS.** The Builder isn't in this release. On the [Releases](https://github.com/w3irDv/20XX-Synapse_Engine/releases)
+page, use the xdelta patches for the Full package on a tested ISO, or the AI-only scripts. Both are tested on macOS 14 (Apple silicon).
 
 ## Troubleshooting
 

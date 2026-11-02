@@ -1,13 +1,13 @@
 # Synapse build details
 
 How the Synapse builders judge an ISO and what they guarantee. It applies to the **Synapse Builder** (`synapse-gui`,
-`synapse-cli`) and to the **AI-only scripts** (`windows/`, `linux/`), which follow the same rules. Their output cites
+`synapse-cli`) and to the **AI-only scripts** (`windows/`, `linux/`, `macos/`), which follow the same rules. Their output cites
 the sections below as `BUILD_DETAILS.md 2`, `BUILD_DETAILS.md 3`, and so on. You don't need this page to build an ISO:
 each README covers the everyday use.
 
 Option names differ per front end:
 
-| Meaning | `synapse-cli` | Windows script | Linux script |
+| Meaning | `synapse-cli` | Windows script | Linux and macOS scripts |
 |---|---|---|---|
 | build an untested ISO without the question | `--allow-unknown-base` | `-AllowUnknownBase` | `--allow-unknown-base` |
 | check only, write nothing | `--check-only` | `-CheckOnly` | `--check-only` |

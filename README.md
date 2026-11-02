@@ -27,7 +27,7 @@ The 20XX Melee Training Hack Pack is one of the most incredible Melee mods of al
 stages and endless tunes, it brings you a killer AI engine that is light-years apart from the vanilla Melee one that
 all other mods inherit. I like to play solo, and after playing against a 20XX Fox, all other mods seem really
 boring... But I also like to play new stages, new characters and different music... so why not connect the 20XX AI
-Engine to your preferred mod and enjoy the best of both worlds? That's what Synapse is: the neural connection between
+Engine to any other mod and enjoy the best of both worlds? That's what Synapse is: the neural connection between
 20XX HP and any mod!
 
 ## Get it: three ways
@@ -35,8 +35,8 @@ Engine to your preferred mod and enjoy the best of both worlds? That's what Syna
 | Way | What you get | Where | How-to |
 |---|---|---|---|
 | **Synapse Builder** (recommended) | a window (and a console tool) for Windows and Linux; **AI-only** or **Full** package; nothing to install | [Releases](https://github.com/w3irDv/20XX-Synapse_Engine/releases): `synapse-builder-…-windows-x64.zip`, `…-linux-x64.tar.gz` | [docs/builder.md](docs/builder.md) |
-| **xdelta patches** | ready-made patches for the tested ISOs | *coming later* | — |
-| **AI-only scripts** | AI-only package, with only the shell your system already has (PowerShell or bash) | [Releases](https://github.com/w3irDv/20XX-Synapse_Engine/releases): `synapse-scripts-…-ai-only.zip`, or the [`scripts/windows`](scripts/windows/) / [`scripts/linux`](scripts/linux/) folders | [Windows](docs/scripts-windows.md) · [Linux](docs/scripts-linux.md) |
+| **xdelta patches** | **Full** package for the 7 tested ISOs (vanilla 1.02, hybrid.64, Silly Melee, SSBM ACE, Akaneia): a script recognises your ISO and patches it; Windows, Linux and macOS (tested on macOS 14, Apple silicon) | [Releases](https://github.com/w3irDv/20XX-Synapse_Engine/releases): `synapse-xdelta-…zip` | [docs/xdelta.md](docs/xdelta.md) |
+| **AI-only scripts** | AI-only package, with only the shell your system already has (PowerShell, bash or zsh); Windows, Linux and macOS (tested on macOS 14, Apple silicon) | [Releases](https://github.com/w3irDv/20XX-Synapse_Engine/releases): `synapse-scripts-…-ai-only.zip`, or the [`scripts/windows`](scripts/windows/) / [`scripts/linux`](scripts/linux/) / [`scripts/macos`](scripts/macos/) folders | [Windows](docs/scripts-windows.md) · [Linux](docs/scripts-linux.md) · [macOS](docs/scripts-macos.md) |
 
 **The two packages:**
 
@@ -45,7 +45,7 @@ Engine to your preferred mod and enjoy the best of both worlds? That's what Syna
   game** (options saved to the memory card): UCF 0.84, Flash Red on a failed L-cancel, Z-Jump, true widescreen, the
   Arcade Melee camera, hitbox display, random stage music, CSS Stars, the character and stage random pools; on m-ex the
   stage select also reopens on its last page. A variant
-  for a **real Wii on a flat screen** adds Force 480p and the polling-drift fix. Output `<name>.full.iso`. Builder only.
+  for a **real Wii on a flat screen** adds Force 480p and the polling-drift fix. Output `<name>.full.iso`. Synapse Builder, or the xdelta patches for the tested ISOs.
 
 ## What you need
 
@@ -69,8 +69,11 @@ may show "Windows protected your PC": **More info → Run anyway**. On Linux, `c
 needed. Details: [docs/builder.md](docs/builder.md).
 
 **AI-only scripts:** on Windows, drag your ISO onto **`scripts\windows\Build-SynapseIso.cmd`**; on Linux, run
-`./build-synapse-iso.sh --source ~/Games/Melee.iso` in `scripts/linux`. Keep `scripts/common` next to the script's
-folder. Details: [Windows](docs/scripts-windows.md) · [Linux](docs/scripts-linux.md).
+`./build-synapse-iso.sh --source ~/Games/Melee.iso` in `scripts/linux`; on macOS, first run
+`xattr -dr com.apple.quarantine <the scripts folder>` in Terminal once (without it, macOS shows a warning and the script
+doesn't run), then double-click **`scripts/macos/Build Synapse ISO.command`**. Keep `scripts/common` next to the script's
+folder. Details:
+[Windows](docs/scripts-windows.md) · [Linux](docs/scripts-linux.md) · [macOS](docs/scripts-macos.md).
 
 ### Check your download (optional)
 
@@ -86,6 +89,12 @@ cmd /c "ssh-keygen -Y verify -f allowed_signers -I w3irDv -n file -s SHA256SUMS.
 ```bash
 # Linux
 sha256sum -c --ignore-missing SHA256SUMS.txt
+ssh-keygen -Y verify -f allowed_signers -I w3irDv -n file -s SHA256SUMS.txt.sig < SHA256SUMS.txt
+```
+
+```bash
+# macOS
+shasum -a 256 -c --ignore-missing SHA256SUMS.txt
 ssh-keygen -Y verify -f allowed_signers -I w3irDv -n file -s SHA256SUMS.txt.sig < SHA256SUMS.txt
 ```
 
@@ -149,7 +158,7 @@ Synapse's own codes (the 20XX CPU rules, CSS Stars, the random pools, …), for 
 | Document | For |
 |---|---|
 | [docs/builder.md](docs/builder.md) | the Synapse Builder: window, console, packages, untested ISOs |
-| [docs/scripts-windows.md](docs/scripts-windows.md), [docs/scripts-linux.md](docs/scripts-linux.md) | the AI-only scripts |
+| [docs/scripts-windows.md](docs/scripts-windows.md), [docs/scripts-linux.md](docs/scripts-linux.md), [docs/scripts-macos.md](docs/scripts-macos.md) | the AI-only scripts |
 | [docs/CONTROLS.md](docs/CONTROLS.md) | every in-match button and menu option, and the random pools on the character / stage select screens |
 | [docs/BUILD_DETAILS.md](docs/BUILD_DETAILS.md) | how the builders judge an ISO: eligible ISOs, untested ISOs, added content, checks, exit codes |
 | [docs/gecko-codes.md](docs/gecko-codes.md) | the paste-ready Gecko codes and the community codes Synapse bakes |
@@ -173,4 +182,5 @@ includes without a licence is credited in [NOTICE.md](NOTICE.md).
 * Thanks to the authors of the community Gecko codes the Full package includes, Achilles1515, Aitch, Altimor, CarVac, Dan Salvato, Fizzi, Krohnos, Magus, mirrorbender, PracticalTAS, Punkline, tauKhan, UnclePunch and Zauron: see [NOTICE.md](NOTICE.md).
 * Thanks to 2gifts for the Enhanced Random Character Gecko code.
 * Thanks to the Melee modding community for the GALE01 symbol map and years of shared research.
+* Thanks to the contributors of the [Melee decompilation](https://github.com/doldecomp/melee), whose work let us check what the game really does instead of guessing.
 * The injection code has been AI-(reverse-)engineered using as a base the original 20XX Hack Pack, m-ex repos and Hybrid 64 binaries.

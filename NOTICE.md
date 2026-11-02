@@ -7,7 +7,7 @@
 - the Synapse Builder source (`source/builder/`: `synapse-core`, `synapse-cli`, `synapse-gui`, `xtask`);
 - Synapse's own code inside the precompiled packs (`scripts/common/`, `source/full/`): the CPU selector, the
   configuration menus, the reaction code, the patches applied to the AI engine, the boot code and Synapse's features;
-- the release scripts (`scripts/windows/`, `scripts/linux/`), the documentation, the table formats;
+- the release scripts (`scripts/windows/`, `scripts/linux/`, `scripts/macos/`), the documentation, the table formats;
 - the Gecko codes marked `[Synapse]` in `geckos/`.
 
 ## Third-party code with its own licence
@@ -18,6 +18,7 @@ These keep their own terms; they are followed as published.
 |---|---|---|---|
 | Enhanced Random Character (the Character Random Pool is a fork of it) | the Full packs; `geckos/character_random_pool.offline.gecko.txt` | MIT | Copyright (c) 2026 the Enhanced Random Character contributors ([upstream](https://github.com/2gifts/SSBMEnhancedRandomCharacter)); fork changes Copyright (c) 2026 w3irDv, MIT |
 | Rust crates linked into `synapse-gui` / `synapse-cli` (egui, eframe, wgpu, winit, rfd, sha2 and their dependencies) | the executables | each crate's own: mostly `MIT OR Apache-2.0` (taken as MIT where offered), also MIT, Apache-2.0, Zlib, BSD, ISC, BSL-1.0, Unicode-3.0, OFL-1.1 and the Ubuntu Font Licence (egui's font) | listed with their full licence texts in `THIRD_PARTY_LICENSES.txt`, shipped in each executable's zip |
+| xdelta3 v3.2.2 (upstream prebuilt binaries, unmodified; they statically link liblzma and BLAKE3) | `windows/`, `linux/`, `macos/` of the xdelta patches zip | Apache-2.0 (full text: `xdelta3-LICENSE.txt` in that zip) | Copyright (C) Joshua MacDonald ([upstream](https://github.com/jmacd/xdelta)) |
 
 The Enhanced Random Character licence:
 
