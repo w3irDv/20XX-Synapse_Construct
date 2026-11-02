@@ -72,7 +72,7 @@ impl Report {
             v.push("  boot test    : <fill in: boots? CPU at type 4 attacks and wavedashes? Z+D-Up menu opens? the mod's own features still work?>".to_string());
         }
         v.push("  Please open an issue titled \"Tested ISO: mod_name\" and paste this block. Thank you!".to_string());
-        v.push("  https://github.com/w3irDv/20XX-Synapse_Engine/issues/new".to_string());
+        v.push("  https://github.com/w3irDv/20XX-Synapse_Construct/issues/new".to_string());
         v
     }
 }

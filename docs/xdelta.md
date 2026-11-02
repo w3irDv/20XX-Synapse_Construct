@@ -1,6 +1,6 @@
 # Synapse xdelta patches (Full package)
 
-`synapse-xdelta-<version>.zip` (on the [Releases](https://github.com/w3irDv/20XX-Synapse_Engine/releases) page)
+`synapse-xdelta-<version>.zip` (on the [Releases](https://github.com/w3irDv/20XX-Synapse_Construct/releases) page)
 turns a Melee ISO you already have into the **Synapse Full** build, with nothing to install. A script recognises your
 ISO, asks which build you want, applies the patch with the bundled `xdelta3` and checks the result. Your ISO is never
 changed; the new one is written next to it.

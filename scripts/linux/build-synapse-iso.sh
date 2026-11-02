@@ -655,7 +655,7 @@ show_report() {    # a block the user can copy when reporting an untested ISO
         echo "  boot test    : <fill in: boots? CPU at type 4 attacks and wavedashes? Z+D-Up menu opens? the mod's own features still work?>"
     fi
     echo '  Please open an issue titled "Tested ISO: mod_name" and paste this block. Thank you!'
-    echo '  https://github.com/w3irDv/20XX-Synapse_Engine/issues/new'
+    echo '  https://github.com/w3irDv/20XX-Synapse_Construct/issues/new'
 }
 
 # ================================================================================================= modes
@@ -791,7 +791,7 @@ add_known_base() {   # --add-known-base: an UNKNOWN but eligible source DOL -> $
     echo 'Builds from this ISO are now treated as known, and their new DOL is checked byte for byte.'
     echo 'If you can, please also open an issue titled "Tested ISO: mod_name" with the REPORT block of the build,'
     echo 'so the ISO can be added for everyone in a later release. Thank you!'
-    echo '  https://github.com/w3irDv/20XX-Synapse_Engine/issues/new'
+    echo '  https://github.com/w3irDv/20XX-Synapse_Construct/issues/new'
 }
 
 build() {

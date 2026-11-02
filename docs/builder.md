@@ -135,7 +135,7 @@ After building an untested ISO, the builder shows a **REPORT** block (the window
 ```
 
 Fill in the `boot test` line after your boot test, then please open an issue at
-<https://github.com/w3irDv/20XX-Synapse_Engine/issues/new> titled `Tested ISO: mod_name` and paste the block. A mod
+<https://github.com/w3irDv/20XX-Synapse_Construct/issues/new> titled `Tested ISO: mod_name` and paste the block. A mod
 reported working can join the tested list in the next release. Reports of failures are just as useful. Thank you!
 
 ### Adding a tested ISO on this machine
@@ -184,7 +184,7 @@ tick **Unblock**). Run `synapse-cli.exe` from PowerShell or Command Prompt.
 the XDG desktop portal, or `zenity` if there is no portal; with neither, the window says so, and typing or pasting the
 path always works. Dragging an ISO onto the window hasn't been tested on Linux yet.
 
-**macOS.** The Builder isn't in this release. On the [Releases](https://github.com/w3irDv/20XX-Synapse_Engine/releases)
+**macOS.** The Builder isn't in this release. On the [Releases](https://github.com/w3irDv/20XX-Synapse_Construct/releases)
 page, use the xdelta patches for the Full package on a tested ISO, or the AI-only scripts. Both are tested on macOS 14 (Apple silicon).
 
 ## Troubleshooting

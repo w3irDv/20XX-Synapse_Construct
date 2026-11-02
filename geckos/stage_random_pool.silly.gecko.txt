@@ -3,7 +3,7 @@ $Stage Random Pool (Silly Melee) [Synapse]
 *and the next stage loads when the match starts. Tested on Silly Melee v1.01. Offline only.
 *SIZE: 329 code lines of the ~408 that Dolphin (and console loaders) hold for ALL enabled codes together;
 *if the enabled codes go over, NONE of them is applied. It doesn't fit with the Character Random Pool code.
-*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Engine
+*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Construct
 *Don't enable it on a Synapse ISO that already bakes this feature (it would hook the same code twice).
 C2259CC0 00000044
 48000009 48000218

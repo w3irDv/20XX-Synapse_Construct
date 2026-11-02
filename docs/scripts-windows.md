@@ -177,7 +177,7 @@ When you build an untested ISO, the script prints a block like this:
 ```
 
 After your boot test, fill in the last line. Then, if you can, please open an issue at
-<https://github.com/w3irDv/20XX-Synapse_Engine/issues/new> titled `Tested ISO: mod_name` and paste the block. Thank you! A mod reported
+<https://github.com/w3irDv/20XX-Synapse_Construct/issues/new> titled `Tested ISO: mod_name` and paste the block. Thank you! A mod reported
 working can be added to the list of tested ISOs in the next release, so other players won't be asked
 about it. Reports of failures are just as useful.
 

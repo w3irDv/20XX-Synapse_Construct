@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-112 -148 792 830" width="1584" height="1660" role="img" aria-label="20XX Synapse Engine (v7, large base logos and labels around the badge): the 20XX Hack Pack AI connected to vanilla, m-ex, ACE, hybrid.64 and Silly Melee">
-  <title>20XX Synapse Engine</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-112 -148 792 830" width="1584" height="1660" role="img" aria-label="20XX Synapse Construct (v7, large base logos and labels around the badge): the 20XX Hack Pack AI connected to vanilla, m-ex, ACE, hybrid.64 and Silly Melee">
+  <title>20XX Synapse Construct</title>
   <defs>
     <!-- chrome lettering, as on the 20XX Hack Pack badge -->
     <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1">
@@ -168,7 +168,7 @@
   <!-- ============ title ============ -->
   <g font-family="Impact, 'Arial Black', sans-serif" text-anchor="middle" filter="url(#shadow)">
     <text x="240" y="302" font-size="34" letter-spacing="5" fill="url(#chrome)" stroke="#4f5764" stroke-width="0.8">SYNAPSE</text>
-    <text x="240" y="326" font-size="16" letter-spacing="11" fill="#8fd0ff">ENGINE</text>
+    <text x="240" y="326" font-size="16" letter-spacing="3.6" fill="#8fd0ff">CONSTRUCT</text>
   </g>
 
   <!-- ============ the synapses: axon bulb, gap (spark), base node ============ -->

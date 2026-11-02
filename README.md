@@ -1,8 +1,8 @@
-# 20XX Synapse Engine
+# 20XX Synapse Construct
 
-<p align="center"><a href="https://github.com/w3irDv/20XX-Synapse_Engine/" title="20XX-Synapse_Engine"><img src="./20XX-SE_logo.svg" width="400"></a></p>
+<p align="center"><a href="https://github.com/w3irDv/20XX-Synapse_Construct/" title="20XX-Synapse_Construct"><img src="./20XX-SC_logo.svg" width="400"></a></p>
 <p align="center">
-<a href="https://github.com/w3irDv/20XX-Synapse_Engine/releases" title="Releases"><img src="https://img.shields.io/github/v/release/w3irDv/20XX-Synapse_Engine?logo=github"></a>
+<a href="https://github.com/w3irDv/20XX-Synapse_Construct/releases" title="Releases"><img src="https://img.shields.io/github/v/release/w3irDv/20XX-Synapse_Construct?logo=github"></a>
 </p>
 
 ## What Synapse is
@@ -34,9 +34,9 @@ Engine to any other mod and enjoy the best of both worlds? That's what Synapse i
 
 | Way | What you get | Where | How-to |
 |---|---|---|---|
-| **Synapse Builder** (recommended) | a window (and a console tool) for Windows and Linux; **AI-only** or **Full** package; nothing to install | [Releases](https://github.com/w3irDv/20XX-Synapse_Engine/releases): `synapse-builder-…-windows-x64.zip`, `…-linux-x64.tar.gz` | [docs/builder.md](docs/builder.md) |
-| **xdelta patches** | **Full** package for the 7 tested ISOs (vanilla 1.02, hybrid.64, Silly Melee, SSBM ACE, Akaneia): a script recognises your ISO and patches it; Windows, Linux and macOS (tested on macOS 14, Apple silicon) | [Releases](https://github.com/w3irDv/20XX-Synapse_Engine/releases): `synapse-xdelta-…zip` | [docs/xdelta.md](docs/xdelta.md) |
-| **AI-only scripts** | AI-only package, with only the shell your system already has (PowerShell, bash or zsh); Windows, Linux and macOS (tested on macOS 14, Apple silicon) | [Releases](https://github.com/w3irDv/20XX-Synapse_Engine/releases): `synapse-scripts-…-ai-only.zip`, or the [`scripts/windows`](scripts/windows/) / [`scripts/linux`](scripts/linux/) / [`scripts/macos`](scripts/macos/) folders | [Windows](docs/scripts-windows.md) · [Linux](docs/scripts-linux.md) · [macOS](docs/scripts-macos.md) |
+| **Synapse Builder** (recommended) | a window (and a console tool) for Windows and Linux; **AI-only** or **Full** package; nothing to install | [Releases](https://github.com/w3irDv/20XX-Synapse_Construct/releases): `synapse-builder-…-windows-x64.zip`, `…-linux-x64.tar.gz` | [docs/builder.md](docs/builder.md) |
+| **xdelta patches** | **Full** package for the 7 tested ISOs (vanilla 1.02, hybrid.64, Silly Melee, SSBM ACE, Akaneia): a script recognises your ISO and patches it; Windows, Linux and macOS (tested on macOS 14, Apple silicon) | [Releases](https://github.com/w3irDv/20XX-Synapse_Construct/releases): `synapse-xdelta-…zip` | [docs/xdelta.md](docs/xdelta.md) |
+| **AI-only scripts** | AI-only package, with only the shell your system already has (PowerShell, bash or zsh); Windows, Linux and macOS (tested on macOS 14, Apple silicon) | [Releases](https://github.com/w3irDv/20XX-Synapse_Construct/releases): `synapse-scripts-…-ai-only.zip`, or the [`scripts/windows`](scripts/windows/) / [`scripts/linux`](scripts/linux/) / [`scripts/macos`](scripts/macos/) folders | [Windows](docs/scripts-windows.md) · [Linux](docs/scripts-linux.md) · [macOS](docs/scripts-macos.md) |
 
 **The two packages:**
 
@@ -63,7 +63,7 @@ Engine to any other mod and enjoy the best of both worlds? That's what Synapse i
 ## Quick start
 
 **Synapse Builder:** download the archive for your system from
-[Releases](https://github.com/w3irDv/20XX-Synapse_Engine/releases), extract it, run **`synapse-gui`**, choose your
+[Releases](https://github.com/w3irDv/20XX-Synapse_Construct/releases), extract it, run **`synapse-gui`**, choose your
 ISO, pick **AI-only** or **Full**, press **Build**. The new ISO is written next to yours. On Windows, the first run
 may show "Windows protected your PC": **More info → Run anyway**. On Linux, `chmod +x synapse-gui synapse-cli` if
 needed. Details: [docs/builder.md](docs/builder.md).
@@ -145,7 +145,7 @@ game → Properties → Gecko Codes).
 
 If something fails, each how-to has a troubleshooting table, and [docs/BUILD_DETAILS.md](docs/BUILD_DETAILS.md)
 explains every check and exit code. Tested an ISO that isn't listed above? Please
-[open an issue](https://github.com/w3irDv/20XX-Synapse_Engine/issues/new) titled `Tested ISO: mod_name` with the
+[open an issue](https://github.com/w3irDv/20XX-Synapse_Construct/issues/new) titled `Tested ISO: mod_name` with the
 `== REPORT` block the builder printed.
 
 ## Gecko codes

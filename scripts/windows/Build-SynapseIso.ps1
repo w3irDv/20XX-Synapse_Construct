@@ -508,7 +508,7 @@ function Show-Report([int]$code) {   # a block the user can copy when reporting 
         Write-Host '  boot test    : <fill in: boots? CPU at type 4 attacks and wavedashes? Z+D-Up menu opens? the mod''s own features still work?>'
     }
     Write-Host '  Please open an issue titled "Tested ISO: mod_name" and paste this block. Thank you!'
-    Write-Host '  https://github.com/w3irDv/20XX-Synapse_Engine/issues/new'
+    Write-Host '  https://github.com/w3irDv/20XX-Synapse_Construct/issues/new'
 }
 
 # ================================================================================================= modes
@@ -629,7 +629,7 @@ function Invoke-AddKnownBase([string]$srcPath, [string]$builtPath, $c) {
     Write-Host 'Builds from this ISO are now treated as known, and their new DOL is checked byte for byte.'
     Write-Host 'If you can, please also open an issue titled "Tested ISO: mod_name" with the REPORT block of the build,'
     Write-Host 'so the ISO can be added for everyone in a later release. Thank you!'
-    Write-Host '  https://github.com/w3irDv/20XX-Synapse_Engine/issues/new'
+    Write-Host '  https://github.com/w3irDv/20XX-Synapse_Construct/issues/new'
 }
 
 function Invoke-Build($c) {

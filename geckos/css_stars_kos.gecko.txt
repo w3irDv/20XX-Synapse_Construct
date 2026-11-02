@@ -2,7 +2,7 @@ $CSS Stars = KOs, Counted Once (CPUs too) [Synapse]
 *CSS stars count KOs scored on opponents (the vanilla KO count), once per match.
 *Every slot earns them, CPUs included, in any rule set. Fixes the m-ex double count.
 *Use this or "CSS Stars = Games Won", not both.
-*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Engine
+*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Construct
 *Don't enable it on a Synapse ISO that already bakes this feature (it would hook the same code twice).
 041A5FCC 38800000
 C21A5C0C 0000000B

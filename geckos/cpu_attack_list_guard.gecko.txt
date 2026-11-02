@@ -1,7 +1,7 @@
 $CPU Attack-List Guard (m-ex) [Synapse]
 *m-ex bases only (Akaneia, SSBM ACE): stops the stock CPU crash at 0x800B5084 when a CPU
 *plays an added fighter that has no attack list. Nothing to set.
-*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Engine
+*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Construct
 *Don't enable it on a Synapse ISO that already bakes this feature (it would hook the same code twice).
 C20B4AB4 00000005
 54AC4DFE 280C0100

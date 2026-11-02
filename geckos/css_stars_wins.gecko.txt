@@ -3,7 +3,7 @@ $CSS Stars = Games Won (20XX rules) [Synapse]
 *Stock matches only. A player who pauses and quits gets no star.
 *A tie that goes to sudden death gives the star to the sudden-death winner.
 *Use this or "CSS Stars = KOs", not both.
-*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Engine
+*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Construct
 *Don't enable it on a Synapse ISO that already bakes this feature (it would hook the same code twice).
 041A5FCC 38800000
 C21A5C0C 00000012

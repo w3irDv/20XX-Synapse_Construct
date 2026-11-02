@@ -1,7 +1,7 @@
 $CPU Captain Falcon No Rapid Jab [20XX CPU rule, Synapse port]
 *A CPU Captain Falcon never starts the rapid jab. Human players and MANUAL CPUs are unchanged.
 *Port of the 20XX Hack Pack CPU rule. Hooks 0x800D6B90 (hybrid.64 hooks 0x800D6B8C itself).
-*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Engine
+*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Construct
 *Don't enable it on a Synapse ISO that already bakes this feature (it would hook the same code twice).
 C20D6B90 00000009
 8083002C 80A40004

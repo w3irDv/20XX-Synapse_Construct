@@ -1,7 +1,7 @@
 $Remember Last SSS Page (m-ex) [Synapse]
 *Reopens the m-ex stage select on the page last used (L/R still change pages).
 *m-ex bases only (Akaneia, SSBM ACE).
-*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Engine
+*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Construct
 *Don't enable it on a Synapse ISO that already bakes this feature (it would hook the same code twice).
 C225BB6C 00000009
 806DB5F4 28030000

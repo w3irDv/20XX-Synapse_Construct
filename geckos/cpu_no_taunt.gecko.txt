@@ -1,7 +1,7 @@
 $CPU No Taunt [20XX CPU rule, Synapse port]
 *CPUs never taunt. Human players and MANUAL CPUs are unchanged.
 *Port of the 20XX Hack Pack CPU rule.
-*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Engine
+*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Construct
 *Don't enable it on a Synapse ISO that already bakes this feature (it would hook the same code twice).
 C20DE9D8 00000008
 8083002C 88A4000C

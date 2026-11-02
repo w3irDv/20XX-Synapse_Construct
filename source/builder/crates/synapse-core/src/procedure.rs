@@ -1304,7 +1304,7 @@ pub fn add_known_base(
     log.text("Builds from this ISO are now treated as known, and their new DOL is checked byte for byte.");
     log.text("If you can, please also open an issue titled \"Tested ISO: mod_name\" with the REPORT block of the build,");
     log.text("so the ISO can be added for everyone in a later release. Thank you!");
-    log.text("  https://github.com/w3irDv/20XX-Synapse_Engine/issues/new");
+    log.text("  https://github.com/w3irDv/20XX-Synapse_Construct/issues/new");
     Ok(true)
 }
 

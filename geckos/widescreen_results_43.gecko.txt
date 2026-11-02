@@ -2,7 +2,7 @@ $Widescreen Results 4:3 [Synapse]
 *Add-on to the community Widescreen 16:9 code (Dan Salvato, mirrorbender, Achilles1515, UnclePunch):
 *enable both. Inert without it.
 *Keeps the VS results screen in its 4:3 frame (no second label column).
-*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Engine
+*Synapse, Copyright (c) 2026 w3irDv, MIT licence: https://github.com/w3irDv/20XX-Synapse_Construct
 *Don't enable it on a Synapse ISO that already bakes this feature (it would hook the same code twice).
 C2176ADC 00000006
 28830000 41860024
